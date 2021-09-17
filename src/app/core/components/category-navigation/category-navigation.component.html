@@ -1,0 +1,10 @@
+
+<div class="cat-navigation">
+    <div class="promo">
+        <mat-icon class="promo_icon" >local_offer</mat-icon>
+        <span>Все акции</span>
+    </div>
+    <div class="categories" >
+        <span class="categories_item" (click)="navigateToCategory(card.id,card.name)" *ngFor="let card of categories$| async">{{card.name}}</span>
+    </div>
+</div>

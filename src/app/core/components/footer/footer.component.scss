@@ -1,0 +1,59 @@
+:host {
+    display: block;
+    min-width: 920px;
+    background: #f7f8fa;
+    height: 100px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+}
+footer {
+    max-width: 1090px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+.footer_contacts {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-top: 1px solid #cccdcf;
+    border-bottom: 1px solid #cccdcf;
+}
+.footer_contacts_item {
+    display: flex;
+    align-items: center;
+}
+.telegram_img {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+.footer_social {
+    display: flex;
+    width: 100%;
+    max-width: 220px;
+    justify-content: space-between;
+}
+.social_items {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.maticon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

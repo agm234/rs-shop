@@ -1,0 +1,33 @@
+<div class="swipers_wrapper">
+    <swiper *ngIf="!!product"
+    (swiper)="thumbsSwiper = $event"
+    [spaceBetween]="10"
+    [slidesPerView]="2"
+    [freeMode]="true"
+    [watchSlidesProgress]="true"
+    [direction]="'vertical'"
+    class="mySwiper left_slider"
+    >
+
+    <ng-template swiperSlide class="img_container" *ngFor="let img of product.imageUrls"
+      ><img class="img_left"
+        src="{{img}}" /></ng-template
+    >
+    </swiper>
+    <swiper *ngIf="!!product"
+    style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff"
+    [loop]="false"
+    [spaceBetween]="10"
+    [navigation]="false"
+    [thumbs]="{ swiper: thumbsSwiper }"
+    [direction]="'vertical'"
+    class="mySwiper2 right_slider"
+    >
+    <ng-template swiperSlide *ngFor="let img of product.imageUrls"
+      ><img class="img"
+        src="{{img}}" /></ng-template
+    >
+    </swiper>
+
+
+</div>

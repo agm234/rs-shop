@@ -1,0 +1,110 @@
+:host {
+    display: block;
+    min-width: 920px;
+    background: #f7f8fa;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+}
+.header_wrapper {
+    width: 100%;
+    border-bottom: 1px solid #cccdcf;
+}
+.header {
+    max-width: 1090px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.viber_img,
+.a1_img,
+.telegram_img {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+.contact {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.line {
+    width: 85%;
+}
+.contact::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    display: block;
+    height: 16px;
+    margin-top: -8px;
+    border-left: 1px solid rgb(158, 158, 158);
+}
+.payment {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.location_wrapper {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contact_item {
+    display: flex;
+    align-items: center;
+}
+.location_btn {
+    background-color: inherit;
+    border: none;
+}
+.mat-flat-button {
+    background-color: inherit;
+}
+.contact_center {
+    display: flex;
+    align-items: center;
+}
+.contact_center_info {
+    font-size: 10px;
+    line-height: 14px;
+    width: 74px;
+}
+.contact_center {
+    color: grey;
+}
+.contact::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: block;
+    height: 16px;
+    margin-top: -8px;
+    border-left: 1px solid rgb(158, 158, 158);
+}
+.mat-flat-button {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+}
+.mat-menu-item {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}

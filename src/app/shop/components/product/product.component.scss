@@ -1,0 +1,242 @@
+:host {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+    min-width: 920px;
+}
+.product_wrapper {
+    max-width: 1090px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.slider_and_info {
+    width: 100%;
+    height: 504px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.carusel {
+    width: 100%;
+}
+.car_img {
+    width: 250px;
+    height: 250px;
+}
+.product_rating {
+    display: block;
+    height: 18px;
+    background-image: url(/../../assets/icons/star.png);
+    background-repeat: repeat-x;
+    background-position: left;
+    margin-bottom: 20px;
+}
+.slider {
+    width: 100%;
+    height: 100%;
+    max-width: 670px;
+}
+.info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.product_btns {
+    max-width: 140px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product_info {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.item_price {
+    font-size: 30px;
+    line-height: 39px;
+    font-weight: 400;
+}
+.item_price span {
+    font-size: 14px;
+    line-height: 20px;
+}
+.count {
+    display: flex;
+    align-items: center;
+    color: #999999;
+}
+.icon {
+    margin-right: 5px;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.yellow {
+    color: yellow;
+}
+.item_deliver_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.item_part_price {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #1a1a1a;
+}
+.item_deliver {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.deliver_icon {
+    display: block;
+    margin-right: 5px;
+    color: #0072bc;
+}
+.btn {
+    width: 100%;
+    background: #ea1653;
+    color: #ffffff;
+}
+.left_slider {
+    max-width: 70px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.right_slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img_container {
+    max-width: 56px;
+    max-height: 56px;
+}
+.img_left {
+    width: auto;
+    height: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #e6e6e6;
+    padding: 2px;
+}
+.item_deliver_deliver {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.deliver_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+.item_part_price_price {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #141414;
+}
+.description_text {
+    position: relative;
+    bottom: 1px;
+    display: block;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+    padding-top: 40px;
+    border-top: 1px solid #bc1f6e;
+}
+.description {
+    height: 100%;
+}
+.descriprion_header {
+    display: block;
+
+    height: 100%;
+}
+.descriprion_header_text {
+    border: 0;
+    color: #000 !important;
+    cursor: default;
+    font-weight: bold;
+    line-height: 40px;
+    font-size: 18px;
+}
+.img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.descriprion_header_wrapper {
+    position: relative;
+    z-index: 10;
+    border: 1px solid #bc1f6e;
+    border-bottom: none;
+    background: #ffffff;
+    max-width: 120px;
+    max-height: 40px;
+    width: 100;
+    font-weight: bold;
+    padding: 0 32px;
+    line-height: 40px;
+    font-size: 14px;
+    outline: none;
+    border-spacing: 0;
+}
+.discription {
+    padding-top: 30px;
+}
+/////////////////////////////////////
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    object-fit: cover;
+}
+
+.mySwiper .swiper-wrapper .swiper-slide-thumb-active .img_left {
+    border: 2px solid #4524ff;
+}
+
+.swiper-slide img {
+    object-fit: cover;
+}

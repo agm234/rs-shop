@@ -1,0 +1,39 @@
+<div class="header_nav">
+    <div class="logo" (click)="navigateToMainPage()">
+        <img class="logo_img" src="./assets/icons/logo1.jpeg" alt="logo" />
+    </div>
+    <div class="catalog" (click)="navigate()">
+        <button class="header_btn catalog_btn">
+            <mat-icon matPrefix>dashboard</mat-icon> Каталог товаров
+        </button>
+    </div>
+    <div class="search">
+        <mat-icon matPrefix class="search_icon">search</mat-icon>
+        <input class="search_input" matInput type="search" placeholder="Поиск товаров" />
+    </div>
+    <div class="account">
+        <button class="header_btn account_btn" [matMenuTriggerFor]="account">
+            <mat-icon>login</mat-icon> Аккаунт
+        </button>
+        <mat-menu #account="matMenu" [overlapTrigger]="false">
+            <div mat-menu-item class="login" disabled>
+                <img class="avatar_img" src="./assets/icons/user.png" alt="avatar_img" />
+                <button class="login_btn">Войти</button>
+            </div>
+            <button mat-menu-item>
+                <mat-icon>local_grocery_store</mat-icon> Корзина
+            </button>
+            <hr class="line" />
+            <button mat-menu-item>
+                <mat-icon>favorite_border</mat-icon>Избранные товары
+            </button>
+            <button mat-menu-item><mat-icon>visibility</mat-icon>Просмотренные</button>
+            <button mat-menu-item><mat-icon>shuffle</mat-icon>Списки сравнения</button>
+        </mat-menu>
+    </div>
+    <div class="basket">
+        <button class="header_btn basket_btn">
+            <mat-icon>local_grocery_store</mat-icon> Корзина
+        </button>
+    </div>
+</div>

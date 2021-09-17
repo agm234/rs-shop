@@ -1,0 +1,89 @@
+<div class="main_page">
+    <div class="main-slider">
+        <ngb-carousel *ngIf="images" [showNavigationArrows]="false">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[0]" alt="Random first slide">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[2]" alt="Random third slide">
+              </div>
+            </ng-template>
+          </ngb-carousel>
+    </div>
+    <div class="popular_product_slider">
+        <h3>Популярные товары</h3>
+        <ngb-carousel class="qweregw" [wrap]="false" [interval] = "0" [showNavigationIndicators]="false">
+            <ng-template  *ngFor="let item of items$ |async| splitpipe" ngbSlide>
+                <div class="slider_slide">
+                    <div class="slide_item" *ngFor="let it of item">
+                        <div class="slide_img_wrapper" >
+                            <img class="slide_img"  src="{{it.imageUrls[0]}}" alt="slideImg">
+                        </div>
+                        <div class="slide_item_wrapper">
+                        <span class="item_name">{{it.name}}</span>
+
+                        <span appStars class="item_rating" [number]="it.rating" ></span>
+                        <span>{{it.price}} p.</span>
+                        </div>
+                      </div>
+                </div>
+            </ng-template>
+          </ngb-carousel>
+    </div>
+    <div class="benefits">
+        <h2>Наши преимущества</h2>
+        <div class="benefits-list">
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-1.jpg" alt="adventage-1">
+                <div class="benefits-item-text">
+                    <h3>Гарантия качества</h3>
+                    <span>Мы продаем только сертифицированный товар с гарантией сервисных центров, чек прилагается.</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-2.jpg" alt="adventage-2">
+                <div class="benefits-item-text">
+                <h3>Честные цены</h3>
+                <span>Все цены, указанные на сайте, действительны и актуальны — данные обновляются автоматически.
+                </span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-3.jpg" alt="adventage-3">
+                <div class="benefits-item-text">
+                    <h3>Доставка по всей Беларуси</h3>
+                <span>Мы доставляем заказы в Минск, Брест, Витебск, Гомель, Гродно, Могилев и в любую другую точку Беларуси!</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-4.jpg" alt="adventage-4">
+                <div class="benefits-item-text">
+                <h3>Кредит «не выходя из дома»</h3>
+                <span>Вы можете выбрать кредит среди предложений ведущих банков, рассчитать и оформить его, не выходя из дома.</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-5.jpg" alt="adventage-5">
+                <div class="benefits-item-text">
+                <h3>Надежный сервис</h3>
+                <span>Мы предлагаем услуги по сборке, установке, настройке, гарантийному и послегарантийному обслуживанию товаров.</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-6.jpg" alt="adventage-6">
+                <div class="benefits-item-text">
+                    <h3>Выгодные покупки</h3>
+                    <span>Наш онлайн-гипермаркет предлагает вам выгодные акции, скидки и собственную бонусную программу.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
