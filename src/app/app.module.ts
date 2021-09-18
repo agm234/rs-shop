@@ -13,6 +13,7 @@ import { cardsReducer } from './redux/reducers';
 import {ShopModule} from './shop/shop.module';
 import { AppRoutingModule } from './app-routing.module';
 import {BreadcrumbModule} from 'angular-crumbs';
+import {AuthModule} from './auth/auth.module'
 @NgModule({
   declarations: [
     AppComponent
@@ -21,8 +22,8 @@ import {BreadcrumbModule} from 'angular-crumbs';
     ShopModule,
     BreadcrumbModule,
     HttpClientModule,
-
     BrowserModule,
+    AuthModule,
     CoreModule,
     BrowserAnimationsModule,
     SharedModule,

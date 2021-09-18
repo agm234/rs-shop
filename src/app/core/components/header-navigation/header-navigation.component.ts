@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { LoginFormComponent } from 'src/app/auth/components/login-form/login-form.component';
 
 @Component({
   selector: 'app-header-navigation',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderNavigationComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +19,17 @@ export class HeaderNavigationComponent implements OnInit {
   }
   navigateToMainPage(){
       this.router.navigate([''])
+  }
+  openDialog(): void {
+      console.log(13123123)
+    const dialogRef = this.dialog.open(LoginFormComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  navigateToSelect(){
+      this.router.navigate(["select"])
   }
 }

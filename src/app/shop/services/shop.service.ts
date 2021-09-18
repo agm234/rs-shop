@@ -1,11 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { API_URL_CATITEMS, API_URL_ITEMBYID } from 'src/app/app.constants';
+import { API_URL_CATITEMS, API_URL_ITEMBYID, API_URL_USER } from 'src/app/app.constants';
 import { IShopItem } from '../models/shop.models';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state.models';
 import { getCategoriesItems, getSubCategoriesItems } from 'src/app/redux/actions';
+import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -42,5 +43,14 @@ export class ShopService {
     } else {
         this.store.dispatch(getSubCategoriesItems({payload:array}));
     }
+  }
+  addToSelect(id:string){
+      console.log(id)
+      const header = new HttpHeaders().set('Authorization', 'Bearer '+localStorage.getItem("token"));
+      const headers = { headers: header };
+    console.log(headers)
+      this.http.post(`http://localhost:3004/users/favorites`,id,headers).subscribe(data=>{
+          console.log(data)
+      })
   }
 }

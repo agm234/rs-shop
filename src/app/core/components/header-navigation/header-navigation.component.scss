@@ -100,6 +100,9 @@
     margin-bottom: 20px;
 }
 .login_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 90px;
     height: 40px;
     border: none;

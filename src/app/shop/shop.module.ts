@@ -17,6 +17,8 @@ import { ColorDirective } from './directives/color.directive';
 import { ProductComponent } from './components/product/product.component';
 import { SwiperModule } from 'swiper/angular';
 import { ProductSwiperComponent } from './components/product-swiper/product-swiper.component';
+import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
+import { SelectedProductsItemComponent } from './components/selected-products-item/selected-products-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ProductSwiperComponent } from './components/product-swiper/product-swip
     SortByPopularityPipe,
     ColorDirective,
     ProductComponent,
-    ProductSwiperComponent
+    ProductSwiperComponent,
+    SelectedProductsComponent,
+    SelectedProductsItemComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +55,9 @@ import { ProductSwiperComponent } from './components/product-swiper/product-swip
     CategoryItemsFieldComponent,
     ColorDirective,
     ProductComponent,
-    ProductSwiperComponent
+    ProductSwiperComponent,
+    SelectedProductsComponent,
+    SelectedProductsItemComponent
   ]
 })
 export class ShopModule { }

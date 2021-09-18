@@ -16,7 +16,7 @@
       <span class="item_price">{{item.price}}<span> р.</span></span>
       <span appStars class="item_rating" [number]="item.rating" ></span>
       <button mat-flat-button class="buscet_btn">В корзину</button>
-      <p class="item_add">Добавить в избранное</p>
+      <p class="item_add" (click)="addToSelect(item.id)">Добавить в избранное</p>
       <div class="item_deliver">
         <mat-icon class="deliver_icon">  incomplete_circle</mat-icon>
         <div class="item_deliver_text">

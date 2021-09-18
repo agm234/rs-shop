@@ -12,19 +12,19 @@
         <input class="search_input" matInput type="search" placeholder="Поиск товаров" />
     </div>
     <div class="account">
-        <button class="header_btn account_btn" [matMenuTriggerFor]="account">
+        <button class="header_btn account_btn" [matMenuTriggerFor]="account" >
             <mat-icon>login</mat-icon> Аккаунт
         </button>
         <mat-menu #account="matMenu" [overlapTrigger]="false">
-            <div mat-menu-item class="login" disabled>
+            <div mat-menu-item class="login">
                 <img class="avatar_img" src="./assets/icons/user.png" alt="avatar_img" />
-                <button class="login_btn">Войти</button>
+                <button class="login_btn" (click)="openDialog()" >Войти</button>
             </div>
             <button mat-menu-item>
                 <mat-icon>local_grocery_store</mat-icon> Корзина
             </button>
             <hr class="line" />
-            <button mat-menu-item>
+            <button mat-menu-item (click)="navigateToSelect()">
                 <mat-icon>favorite_border</mat-icon>Избранные товары
             </button>
             <button mat-menu-item><mat-icon>visibility</mat-icon>Просмотренные</button>

@@ -1,0 +1,13 @@
+<div *ngIf="!!item" class="item_wrapper">
+    <div class="item_img_wrapper" >
+        <img class="item_img" src="{{item.imageUrls[0]}}" alt="item img">
+    </div>
+    <div class="item_info">
+        <span class="item_header">{{item.name}}</span>
+        <span appStars class="item_rating" [number]="item.rating" ></span>
+        <span class="item_price">{{item.price}} <span>р.</span></span>
+        <button mat-button class="buscet_btn">Добавить в корзину</button>
+        <span class="delete">Удалить из списка</span>
+    </div>
+</div>
+

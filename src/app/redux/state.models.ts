@@ -13,8 +13,10 @@ export interface ICardsState {
 }
 
 export interface IAuthState {
-  username?: string;
-  isAuthorized: boolean;
+    favorites:ICategoriesItems[];
+    cart: ICategoriesItems[];
+    username: string;
+    lastname: string;
 }
 export interface ICategoriesItems{
     id: string;

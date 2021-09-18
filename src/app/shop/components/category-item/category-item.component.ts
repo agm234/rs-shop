@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { getItem } from 'src/app/redux/actions';
 import { AppState } from 'src/app/redux/state.models';
 import { IShopItem } from '../../models/shop.models';
+import { ShopService } from '../../services/shop.service';
 
 @Component({
   selector: 'app-category-item',
@@ -14,7 +15,8 @@ export class CategoryItemComponent implements OnInit {
 
    @Input() item?: IShopItem;
     id='';
-  constructor(private router:Router,public routed:ActivatedRoute,private store: Store<AppState>) {
+  constructor(private router:Router,public routed:ActivatedRoute,private store: Store<AppState>,
+    private shopService:ShopService) {
     this.routed.params.subscribe(( {id} ) => {
         this.id=id
      });
@@ -24,5 +26,8 @@ export class CategoryItemComponent implements OnInit {
   }
   navigateToProduct(id:string){
     this.router.navigate([`${this.id}`,`${id}`])
+  }
+  addToSelect(id:string){
+    this.shopService.addToSelect(id);
   }
 }

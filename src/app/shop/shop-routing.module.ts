@@ -5,6 +5,7 @@ import { ProductCategoryComponent } from './components/product-category/product-
 import { CategoryPanelComponent} from './components/category-panel/category-panel.component';
 import { ShopMainComponent } from './components/shop-main/shop-main.component';
 import { ProductComponent } from './components/product/product.component';
+import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
 
 const routes:Routes = [
   {
@@ -18,6 +19,11 @@ const routes:Routes = [
     data: { breadcrumb: 'CategoryPanel'}
   },
   {
+    path: 'select',
+    component: SelectedProductsComponent,
+    data: { breadcrumb: 'select'}
+  },
+  {
     path: ':id',
     component: ProductCategoryComponent,
     data: { breadcrumb: ':id'}
@@ -27,6 +33,7 @@ const routes:Routes = [
     component: ProductComponent,
     data: { breadcrumb: ':id'}
   },
+
 ];
 
 @NgModule({
