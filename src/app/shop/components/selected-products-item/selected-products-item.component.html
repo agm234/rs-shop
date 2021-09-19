@@ -6,8 +6,9 @@
         <span class="item_header">{{item.name}}</span>
         <span appStars class="item_rating" [number]="item.rating" ></span>
         <span class="item_price">{{item.price}} <span>р.</span></span>
-        <button mat-button class="buscet_btn">Добавить в корзину</button>
-        <span class="delete">Удалить из списка</span>
+        <button mat-flat-button *ngIf="!cart" (click)="addToBasket(item.id)" class="buscet_btn">В корзину</button>
+        <button mat-flat-button  *ngIf="cart" (click)="deleteFromBasket(item.id)" class="buscet_btn buscet">В корзине</button>
+        <span class="delete" (click)="delete(item.id)">Удалить из списка</span>
     </div>
 </div>
 

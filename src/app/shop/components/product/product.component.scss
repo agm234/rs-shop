@@ -240,3 +240,15 @@
 .swiper-slide img {
     object-fit: cover;
 }
+.item_add {
+    font-size: 1em;
+    color: #0072bc;
+    border-bottom: 1px dotted rgba(0, 114, 188, 0.5);
+    cursor: pointer;
+    pointer-events: auto;
+}
+.buscet {
+    background-color: #ffffff;
+    color: #ea1653;
+    border: 1px solid #ea1653;
+}

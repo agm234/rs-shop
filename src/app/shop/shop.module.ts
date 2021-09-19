@@ -19,6 +19,7 @@ import { SwiperModule } from 'swiper/angular';
 import { ProductSwiperComponent } from './components/product-swiper/product-swiper.component';
 import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
 import { SelectedProductsItemComponent } from './components/selected-products-item/selected-products-item.component';
+import { BasketComponent } from './components/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SelectedProductsItemComponent } from './components/selected-products-it
     ProductComponent,
     ProductSwiperComponent,
     SelectedProductsComponent,
-    SelectedProductsItemComponent
+    SelectedProductsItemComponent,
+    BasketComponent,
   ],
   imports: [
     CommonModule,
@@ -57,7 +59,9 @@ import { SelectedProductsItemComponent } from './components/selected-products-it
     ProductComponent,
     ProductSwiperComponent,
     SelectedProductsComponent,
-    SelectedProductsItemComponent
+    SelectedProductsItemComponent,
+    BasketComponent,
+
   ]
 })
 export class ShopModule { }

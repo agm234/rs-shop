@@ -35,8 +35,10 @@
                   </div>
             </div>
             <div class="product_btns">
-                <button mat-flat-button class="btn">В корзину</button>
-                <button mat-flat-button class="btn">В избранное</button>
+                <button mat-flat-button *ngIf="!cart" (click)="addToBasket(product.id)" class="btn">В корзину</button>
+                <button mat-flat-button  *ngIf="cart" (click)="deleteFromBasket(product.id)" class="btn buscet">В корзине</button>
+                <p class="item_add" *ngIf="!favorites" (click)="addToSelect(product.id)">Добавить в избранное</p>
+                <p class="item_delete" *ngIf="favorites" (click)="deleteFromSelect(product.id)">Удалить из избранного</p>
             </div>
         </div>
     </div>

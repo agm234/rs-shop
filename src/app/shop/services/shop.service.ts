@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { API_URL_CATITEMS, API_URL_ITEMBYID, API_URL_USER } from 'src/app/app.constants';
-import { IShopItem } from '../models/shop.models';
+import { IShopItem, IUserInfo } from '../models/shop.models';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state.models';
 import { getCategoriesItems, getSubCategoriesItems } from 'src/app/redux/actions';
@@ -45,12 +45,28 @@ export class ShopService {
     }
   }
   addToSelect(id:string){
-      console.log(id)
-      const header = new HttpHeaders().set('Authorization', 'Bearer '+localStorage.getItem("token"));
+      const header = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer '+localStorage.getItem("token"));
       const headers = { headers: header };
-    console.log(headers)
-      this.http.post(`http://localhost:3004/users/favorites`,id,headers).subscribe(data=>{
-          console.log(data)
-      })
+      this.http.post('http://localhost:3004/users/favorites',{id:id},headers).subscribe()
   }
+  getUser(){
+    const header = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer '+localStorage.getItem("token"));
+    const headers = { headers: header };
+    return this.http.get<IUserInfo>('http://localhost:3004/users/userInfo',headers)
+  }
+  addToBasket(id:string){
+    const header = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer '+localStorage.getItem("token"));
+    const headers = { headers: header };
+    this.http.post('http://localhost:3004/users/cart',{id:id},headers).subscribe()
+}
+    deleteFromSelect(id:string){
+        const header = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer '+localStorage.getItem("token"));
+        const headers = { headers: header };
+        this.http.delete(`http://localhost:3004/users/favorites?id=${id}`,headers).subscribe()
+    }
+    deleteFromBasket(id:string){
+        const header = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer '+localStorage.getItem("token"));
+        const headers = { headers: header };
+        this.http.delete(`http://localhost:3004/users/cart?id=${id}`,headers).subscribe()
+    }
 }

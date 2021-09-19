@@ -20,7 +20,7 @@
                 <img class="avatar_img" src="./assets/icons/user.png" alt="avatar_img" />
                 <button class="login_btn" (click)="openDialog()" >Войти</button>
             </div>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="navigateToBasket()">
                 <mat-icon>local_grocery_store</mat-icon> Корзина
             </button>
             <hr class="line" />
@@ -32,7 +32,7 @@
         </mat-menu>
     </div>
     <div class="basket">
-        <button class="header_btn basket_btn">
+        <button class="header_btn basket_btn" (click)="navigateToBasket()">
             <mat-icon>local_grocery_store</mat-icon> Корзина
         </button>
     </div>

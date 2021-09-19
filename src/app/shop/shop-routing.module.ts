@@ -6,6 +6,7 @@ import { CategoryPanelComponent} from './components/category-panel/category-pane
 import { ShopMainComponent } from './components/shop-main/shop-main.component';
 import { ProductComponent } from './components/product/product.component';
 import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
+import { BasketComponent } from './components/basket/basket.component';
 
 const routes:Routes = [
   {
@@ -22,6 +23,11 @@ const routes:Routes = [
     path: 'select',
     component: SelectedProductsComponent,
     data: { breadcrumb: 'select'}
+  },
+  {
+    path: 'basket',
+    component: BasketComponent,
+    data: { breadcrumb: 'basket'}
   },
   {
     path: ':id',

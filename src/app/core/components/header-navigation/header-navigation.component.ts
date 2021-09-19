@@ -32,4 +32,7 @@ export class HeaderNavigationComponent implements OnInit {
   navigateToSelect(){
       this.router.navigate(["select"])
   }
+  navigateToBasket(){
+    this.router.navigate(["basket"])
+  }
 }
