@@ -24,11 +24,11 @@
             <ng-template  *ngFor="let item of items$ |async| splitpipe" ngbSlide>
                 <div class="slider_slide">
                     <div class="slide_item" *ngFor="let it of item">
-                        <div class="slide_img_wrapper" >
+                        <div class="slide_img_wrapper" (click)="navigateToProducts(it.id)">
                             <img class="slide_img"  src="{{it.imageUrls[0]}}" alt="slideImg">
                         </div>
                         <div class="slide_item_wrapper">
-                        <span class="item_name">{{it.name}}</span>
+                        <span class="item_name" (click)="navigateToProducts(it.id)" >{{it.name}}</span>
 
                         <span appStars class="item_rating" [number]="it.rating" ></span>
                         <span>{{it.price}} p.</span>

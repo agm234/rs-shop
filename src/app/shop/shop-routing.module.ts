@@ -12,33 +12,28 @@ const routes:Routes = [
   {
     path: '',
     component: ShopMainComponent,
-    data: { breadcrumb: 'zxcasdqwer'},
   },
   {
     path: 'CategoryPanel',
     component: CategoryPanelComponent,
-    data: { breadcrumb: 'CategoryPanel'}
   },
   {
     path: 'select',
     component: SelectedProductsComponent,
-    data: { breadcrumb: 'select'}
   },
   {
     path: 'basket',
     component: BasketComponent,
-    data: { breadcrumb: 'basket'}
+  },
+  {
+    path: 'product/:id',
+    component: ProductComponent,
   },
   {
     path: ':id',
     component: ProductCategoryComponent,
-    data: { breadcrumb: ':id'}
   },
-  {
-    path: ':id/:id',
-    component: ProductComponent,
-    data: { breadcrumb: ':id'}
-  },
+
 
 ];
 

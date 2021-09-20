@@ -18,7 +18,7 @@
       <button mat-flat-button *ngIf="!cart" (click)="addToBasket(item.id)"  class="buscet_btn">В корзину</button>
       <button mat-flat-button  *ngIf="cart"(click)="removeFromBasket(item.id)"  class="buscet_btn buscet">В корзине</button>
       <p class="item_add" *ngIf="!favorites" (click)="addToSelect(item.id)">Добавить в избранное</p>
-      <p class="item_delete" *ngIf="favorites" (click)="removeFromSelect(item.id)">Удалить из избранного</p>
+      <p class="item_add delete" *ngIf="favorites" (click)="removeFromSelect(item.id)">Удалить из избранного</p>
       <div class="item_deliver">
         <mat-icon class="deliver_icon">  incomplete_circle</mat-icon>
         <div class="item_deliver_text">

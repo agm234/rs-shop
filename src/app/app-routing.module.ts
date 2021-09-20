@@ -7,7 +7,6 @@ const routes:Routes = [
   {
     path: '',
     loadChildren: () => import ('./shop/shop.module').then((m) => m.ShopModule),
-    data: {breadcrumb:"home"},
    }
 ];
 

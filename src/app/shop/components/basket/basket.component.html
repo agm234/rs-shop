@@ -16,13 +16,13 @@
             <tr class="basket_item" *ngFor="let item of items$|async">
                 <td class="table_img">
                     <div class="table_img_wrapper">
-                        <img class="item_img" src="{{item.imageUrls[0]}}" alt="img">
+                        <img class="item_img" (click)="navigateToProduct(item.id)" src="{{item.imageUrls[0]}}" alt="img">
                         <span class="delete" (click)="deleteFromBasket(item.id)" >Удалить</span>
                     </div>
                     </td>
                 <td class="table_name">
                     <div class="table_name_wrapper">
-                         <span class="table_name_name">{{item.name}}</span>
+                         <span class="table_name_name" (click)="navigateToProduct(item.id)">{{item.name}}</span>
                          <span class="select" *ngIf="!favoritesArr.includes(item.id)" (click)="addToSelect(item.id)">Добавть в избранное</span>
                          <span class="select" *ngIf="favoritesArr.includes(item.id)" (click)="removeFromSelect(item.id)">Удалить из избранного</span>
                     </div>
@@ -32,7 +32,7 @@
                     <div class="count">
                         <span class="minus"></span>
                         <div>
-                            <input class="number" type="text" [(ngModel)]="count">
+                            <input id="asda" class="number" type="text" [(ngModel)]="count">
                         </div>
                         <span class="plus"></span>
                     </div>
@@ -44,8 +44,12 @@
                     </div>
 
                 </td>
-                <td class="table_price price_td">{{item.price}} р.</td>
+                <td class="table_price price_td">{{item.price*count}} р.</td>
             </tr>
         </tbody>
     </table>
+    <div class="order">
+        <button mat-button *ngIf="!isOrderActive" class="order_btn" (click)="isOrderActive=!isOrderActive">Оформить заказ</button>
+    </div>
+    <app-order *ngIf="isOrderActive"></app-order>
 </div>

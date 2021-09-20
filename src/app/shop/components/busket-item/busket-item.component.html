@@ -1,0 +1,33 @@
+<tr class="basket_item" *ngIf="!!item" >
+    <td class="table_img">
+        <div class="table_img_wrapper">
+            <img class="item_img" src="{{item.imageUrls[0]}}" alt="img">
+            <span class="delete" (click)="deleteFromBasket(item.id)" >Удалить</span>
+        </div>
+        </td>
+    <td class="table_name">
+        <div class="table_name_wrapper">
+             <span class="table_name_name">{{item.name}}</span>
+             <span class="select" *ngIf="!favoritesArr.includes(item.id)" (click)="addToSelect(item.id)">Добавть в избранное</span>
+             <span class="select" *ngIf="favoritesArr.includes(item.id)" (click)="removeFromSelect(item.id)">Удалить из избранного</span>
+        </div>
+    </td>
+    <td class="table_description">{{item.description}}</td>
+    <td class="table_count">
+        <div class="count">
+            <span class="minus"></span>
+            <div>
+                <input class="number" type="text" [(ngModel)]="count">
+            </div>
+            <span class="plus"></span>
+        </div>
+    </td>
+    <td class="table_deliver">
+        <div class="deliver_wrapper">
+            <span>Самовывоз-завтра</span>
+            <span>Доставака-завтра</span>
+        </div>
+
+    </td>
+    <td class="table_price price_td">{{item.price}} р.</td>
+</tr>

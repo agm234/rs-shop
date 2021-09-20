@@ -1,8 +1,5 @@
 :host {
-    display: block;
-    width: 100%;
-    min-height: 100%;
-    min-width: 920px;
+    display: table-row-group;
 }
 .busket_table {
     border-top: 1px solid rgb(158, 158, 158);
@@ -137,14 +134,4 @@
 .header3 {
     font-size: 14px;
     font-weight: bold;
-}
-.order_btn {
-    background-color: #0072bc;
-    color: white;
-    border-radius: 0;
-}
-.order {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
 }

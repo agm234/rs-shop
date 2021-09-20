@@ -41,7 +41,7 @@ export class CategoryItemComponent implements OnInit {
     })
   }
   navigateToProduct(id:string){
-    this.router.navigate([`${this.id}`,`${id}`])
+    this.router.navigate([`product`,`${id}`])
   }
   addToSelect(id:string){
     this.shopService.addToSelect(id);

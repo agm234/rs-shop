@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -16,11 +17,13 @@ export class ShopMainComponent implements OnInit {
     showNavigationArrows = false;
     showNavigationIndicators = true;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>,private router:Router) {
     this.items$ = store.pipe(select(selectPopularItemsState));
   }
   ngOnInit(): void {
   }
-
+  navigateToProducts(id:string){
+    this.router.navigate([`product`,id])
+  }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit,NgModule, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
@@ -14,8 +15,10 @@ export class BasketComponent implements OnInit {
     favoritesArr:string[]=[];
     items$: Observable<IShopItem[] | null> = new BehaviorSubject([]);
     observables= [] as Array<Observable<IShopItem | null>> ;
-  constructor(private shopService:ShopService) {
-      this.count=2;
+    isOrderActive:boolean;
+  constructor(private shopService:ShopService,private router:Router) {
+      this.count=1;
+      this.isOrderActive=false;
     this.shopService.getUser().subscribe(data=>{
         data.cart.forEach(el=>{
             this.observables.push(this.shopService.getItem(el))
@@ -26,6 +29,7 @@ export class BasketComponent implements OnInit {
 
   ngOnInit(): void {
     this.isFavorites()
+
   }
   isFavorites(){
     this.shopService.getUser().subscribe(data=>{
@@ -42,5 +46,8 @@ export class BasketComponent implements OnInit {
   }
   deleteFromBasket(id:string){
     this.shopService.deleteFromBasket(id);
+  }
+  navigateToProduct(id:string){
+    this.router.navigate([`product`,`${id}`])
   }
 }

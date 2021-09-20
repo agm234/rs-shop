@@ -1,9 +1,9 @@
 <div *ngIf="!!item" class="item_wrapper">
-    <div class="item_img_wrapper" >
+    <div class="item_img_wrapper" (click)=" navigateToProduct(item.id)" >
         <img class="item_img" src="{{item.imageUrls[0]}}" alt="item img">
     </div>
     <div class="item_info">
-        <span class="item_header">{{item.name}}</span>
+        <span class="item_header" (click)=" navigateToProduct(item.id)">{{item.name}}</span>
         <span appStars class="item_rating" [number]="item.rating" ></span>
         <span class="item_price">{{item.price}} <span>р.</span></span>
         <button mat-flat-button *ngIf="!cart" (click)="addToBasket(item.id)" class="buscet_btn">В корзину</button>

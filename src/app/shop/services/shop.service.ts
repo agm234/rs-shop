@@ -36,8 +36,6 @@ export class ShopService {
     return this.http.get<IShopItem>(`${API_URL_ITEMBYID}${query}`);
   }
   loadCards(array:Array<string>){
-      console.log(array)
-      console.log(array.length)
     if(array.length<2){
         this.store.dispatch(getCategoriesItems({payload:array[0]}));
     } else {

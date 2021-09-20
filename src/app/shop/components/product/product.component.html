@@ -1,8 +1,16 @@
 <div class="product_wrapper" *ngFor="let product of item">
+    <div class="breadcrums">
+        <span (click)="navigate('')" class="breadcrums_item">Home</span>
+        <span>></span>
+        <span  (click)="navigate(product.category)"class="breadcrums_item">{{product.category}}</span>
+        <span>></span>
+        <span class="breadcrums_item"  (click)="navigate(product.category,product.subCategory)">{{product.subCategory}}</span>
+    </div>
     <h2>{{product.name}}</h2>
     <span appStars class="product_rating" [number]="product.rating" ></span>
     <div class="slider_and_info">
         <div class="slider">
+            <img class="populat_img" *ngIf="product.rating>4" src="./assets/icons/popular.png" alt="">
            <app-product-swiper [product]="product"></app-product-swiper>
         </div>
         <div class="info">
@@ -38,7 +46,7 @@
                 <button mat-flat-button *ngIf="!cart" (click)="addToBasket(product.id)" class="btn">В корзину</button>
                 <button mat-flat-button  *ngIf="cart" (click)="deleteFromBasket(product.id)" class="btn buscet">В корзине</button>
                 <p class="item_add" *ngIf="!favorites" (click)="addToSelect(product.id)">Добавить в избранное</p>
-                <p class="item_delete" *ngIf="favorites" (click)="deleteFromSelect(product.id)">Удалить из избранного</p>
+                <p class="item_add delete" *ngIf="favorites" (click)="deleteFromSelect(product.id)">Удалить из избранного</p>
             </div>
         </div>
     </div>

@@ -28,4 +28,6 @@ export interface ICategoriesItems{
     description: string;
     isInCart: boolean;
     isFavorite: boolean;
+    category: string;
+    subCategory: string;
 }

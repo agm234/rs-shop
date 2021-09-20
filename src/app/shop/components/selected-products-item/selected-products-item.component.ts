@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
 
@@ -10,7 +11,7 @@ import { ShopService } from '../../services/shop.service';
 export class SelectedProductsItemComponent implements OnInit {
  @Input() item?:IShopItem;
  cart?:boolean;
-  constructor(private shopService:ShopService) { }
+  constructor(private shopService:ShopService,private router:Router) { }
 
   ngOnInit(): void {
     this.shopService.getUser().subscribe(data=>{
@@ -31,5 +32,8 @@ export class SelectedProductsItemComponent implements OnInit {
   deleteFromBasket(id:string){
     this.shopService.deleteFromBasket(id);
     this.cart=!this.cart;
+  }
+  navigateToProduct(id:string){
+    this.router.navigate([`product`,`${id}`])
   }
 }

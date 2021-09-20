@@ -20,7 +20,8 @@ import { ProductSwiperComponent } from './components/product-swiper/product-swip
 import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
 import { SelectedProductsItemComponent } from './components/selected-products-item/selected-products-item.component';
 import { BasketComponent } from './components/basket/basket.component';
-
+import { BusketItemComponent } from './components/busket-item/busket-item.component';
+import { OrderComponent } from './components/order/order.component';
 @NgModule({
   declarations: [
     CategoryPanelComponent,
@@ -39,12 +40,14 @@ import { BasketComponent } from './components/basket/basket.component';
     SelectedProductsComponent,
     SelectedProductsItemComponent,
     BasketComponent,
+    BusketItemComponent,
+    OrderComponent,
   ],
   imports: [
     CommonModule,
     SwiperModule,
     SharedModule,
-    ShopRoutingModule
+    ShopRoutingModule,
   ],
   exports:[
     CategoryPanelComponent,
@@ -61,7 +64,8 @@ import { BasketComponent } from './components/basket/basket.component';
     SelectedProductsComponent,
     SelectedProductsItemComponent,
     BasketComponent,
-
+    BusketItemComponent,
+    OrderComponent,
   ]
 })
 export class ShopModule { }
