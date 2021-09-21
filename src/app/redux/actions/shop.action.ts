@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 
 import { ICategories } from '../../core/models/categories-model';
-import {ICategoriesItems} from '../state.models'
+import { ICategoriesItems } from '../state.models';
 
 
 export const getCategories = createAction('getCategories');

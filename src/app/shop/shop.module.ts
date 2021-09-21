@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryPanelComponent } from './components/category-panel/category-panel.component';
-import {SharedModule} from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { ShopMainComponent } from './components/shop-main/shop-main.component';
 import { SplitpipePipe } from './pipes/splitpipe.pipe';
 import { StarsDirective } from './directives/stars.directive';
-import { ProductCategoryComponent } from './components/product-category/product-category.component'
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
 
 import { ShopRoutingModule } from './shop-routing.module';
 import { FiltersComponent } from './components/filters/filters.component';
@@ -20,7 +20,6 @@ import { ProductSwiperComponent } from './components/product-swiper/product-swip
 import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
 import { SelectedProductsItemComponent } from './components/selected-products-item/selected-products-item.component';
 import { BasketComponent } from './components/basket/basket.component';
-import { BusketItemComponent } from './components/busket-item/busket-item.component';
 import { OrderComponent } from './components/order/order.component';
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { OrderComponent } from './components/order/order.component';
     SelectedProductsComponent,
     SelectedProductsItemComponent,
     BasketComponent,
-    BusketItemComponent,
     OrderComponent,
   ],
   imports: [
@@ -64,8 +62,7 @@ import { OrderComponent } from './components/order/order.component';
     SelectedProductsComponent,
     SelectedProductsItemComponent,
     BasketComponent,
-    BusketItemComponent,
     OrderComponent,
-  ]
+  ],
 })
 export class ShopModule { }

@@ -11,36 +11,42 @@ import { ShopService } from '../../services/shop.service';
 @Component({
   selector: 'app-category-items-field',
   templateUrl: './category-items-field.component.html',
-  styleUrls: ['./category-items-field.component.scss']
+  styleUrls: ['./category-items-field.component.scss'],
 })
 export class CategoryItemsFieldComponent implements OnInit {
-    isDesc = false;
-    id?:string;
-    filter = '';
-    items$: Observable<IShopItem[] | null> = new BehaviorSubject([]);
-    private subs: Subscription = new Subscription();
-  constructor(public routed:ActivatedRoute,private store: Store<AppState>,private shopService:ShopService) {
-    this.routed.params.subscribe(( {id} ) => {
-         this.id=id
-        this.shopService.loadCards((this.id?.split('_') as string[]));
-      });
-      this.items$= this.store.pipe(select(selectItemsState));
+  isDesc = false;
+
+  id?:string;
+
+  filter = '';
+
+  items$: Observable<IShopItem[] | null> = new BehaviorSubject([]);
+
+  private subs: Subscription = new Subscription();
+
+  constructor(public routed:ActivatedRoute, private store: Store<AppState>, private shopService:ShopService) {
+    this.routed.params.subscribe(( { id } ) => {
+      this.id = id;
+      this.shopService.loadCards((this.id?.split('_') as string[]));
+    });
+    this.items$ = this.store.pipe(select(selectItemsState));
   }
 
   ngOnInit(): void {
-      this.subs.add(this.shopService.filter$.subscribe((data) => {
-        this.filter = data;
-        this.store.dispatch(getCards());
-      }));
-      this.subs.add(this.shopService.isDesc$.subscribe((data) => {
-        this.isDesc = data;
-      }));
-      this.subs.add(this.shopService.count$.subscribe((data) => {
-        this.shopService.loadCards((this.id?.split('_') as string[]));
-      }));
+    this.subs.add(this.shopService.filter$.subscribe((data) => {
+      this.filter = data;
+      this.store.dispatch(getCards());
+    }));
+    this.subs.add(this.shopService.isDesc$.subscribe((data) => {
+      this.isDesc = data;
+    }));
+    this.subs.add(this.shopService.count$.subscribe((data) => {
+      this.shopService.loadCards((this.id?.split('_') as string[]));
+    }));
   }
+
   load(){
-     this.shopService.count$.next((this.shopService.count as number) +10)
+    this.shopService.count$.next((this.shopService.count as number) + 10);
   }
 
 }

@@ -6,12 +6,12 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 @NgModule({
   declarations: [
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
   ],
-  exports:[ LoginFormComponent]
+  exports:[ LoginFormComponent],
 })
 export class AuthModule { }

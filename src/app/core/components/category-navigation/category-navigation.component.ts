@@ -4,27 +4,29 @@ import { ICategories } from '../../models/categories-model';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state.models';
 import { selectVideosState } from 'src/app/redux/selectors/shop.selector';
-import { getCategories,getCategoriesItems, getPopularItems } from '../../../redux/actions/index';
+import { getCategories, getCategoriesItems, getPopularItems } from '../../../redux/actions/index';
 import { ShopService } from 'src/app/shop/services/shop.service';
 import { GetCardsService } from '../../services/get-cards.service';
 import { Router } from '@angular/router';
 @Component({
-    selector: 'app-category-navigation',
-    templateUrl: './category-navigation.component.html',
-    styleUrls: ['./category-navigation.component.scss'],
+  selector: 'app-category-navigation',
+  templateUrl: './category-navigation.component.html',
+  styleUrls: ['./category-navigation.component.scss'],
 })
 export class CategoryNavigationComponent implements OnInit {
-    categories$: Observable<ICategories[] | null> = new BehaviorSubject([]);
-    constructor(private store: Store<AppState>,private shopService:ShopService,private router:Router) {
-        this.store.dispatch(getCategories());
-        this.categories$ = store.pipe(select(selectVideosState));
-        this.store.dispatch(getPopularItems({payload:"electronics"}));
-    }
+  categories$: Observable<ICategories[] | null> = new BehaviorSubject([]);
 
-    ngOnInit(): void {}
-    navigateToCategory(categoryId:string,categoryName:string){
-        this.shopService.categoryName$.next(categoryName);
-        this.shopService.count$.next(10)
-        this.router.navigate([`${categoryId}`])
-    }
+  constructor(private store: Store<AppState>, private shopService:ShopService, private router:Router) {
+    this.store.dispatch(getCategories());
+    this.categories$ = store.pipe(select(selectVideosState));
+    this.store.dispatch(getPopularItems({ payload:'electronics' }));
+  }
+
+  ngOnInit(): void {}
+
+  navigateToCategory(categoryId:string, categoryName:string){
+    this.shopService.categoryName$.next(categoryName);
+    this.shopService.count$.next(10);
+    this.router.navigate([`${categoryId}`]);
+  }
 }

@@ -8,9 +8,9 @@ describe('SelectedProductsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectedProductsComponent ]
+      declarations: [ SelectedProductsComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

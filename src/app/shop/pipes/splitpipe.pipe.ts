@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { IShopItem } from '../models/shop.models';
 
 @Pipe({
-  name: 'splitpipe'
+  name: 'splitpipe',
 })
 export class SplitpipePipe implements PipeTransform {
 

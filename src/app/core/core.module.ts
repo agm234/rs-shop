@@ -11,7 +11,7 @@ import { CategoryNavigationComponent } from './components/category-navigation/ca
     HeaderComponent,
     FooterComponent,
     HeaderNavigationComponent,
-    CategoryNavigationComponent
+    CategoryNavigationComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +21,7 @@ import { CategoryNavigationComponent } from './components/category-navigation/ca
   exports:[
     HeaderComponent,
     FooterComponent,
-    HeaderNavigationComponent
-  ]
+    HeaderNavigationComponent,
+  ],
 })
 export class CoreModule { }

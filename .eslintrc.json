@@ -19,6 +19,7 @@
           "plugin:@angular-eslint/template/process-inline-templates",
           "airbnb-typescript/base"
         ],
+        "plugins": ["import"],
         "rules": {
           "@angular-eslint/directive-selector": [
             "error",

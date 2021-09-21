@@ -9,21 +9,26 @@ import { IShopItem } from '../../models/shop.models';
 @Component({
   selector: 'app-shop-main',
   templateUrl: './shop-main.component.html',
-  styleUrls: ['./shop-main.component.scss']
+  styleUrls: ['./shop-main.component.scss'],
 })
 export class ShopMainComponent implements OnInit {
-    images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/1090/500`);
-    items$:Observable<IShopItem[]>;
-    showNavigationArrows = false;
-    showNavigationIndicators = true;
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/1090/500`);
 
-  constructor(private store: Store<AppState>,private router:Router) {
+  items$:Observable<IShopItem[]>;
+
+  showNavigationArrows = false;
+
+  showNavigationIndicators = true;
+
+  constructor(private store: Store<AppState>, private router:Router) {
     this.items$ = store.pipe(select(selectPopularItemsState));
   }
+
   ngOnInit(): void {
   }
+
   navigateToProducts(id:string){
-    this.router.navigate([`product`,id])
+    this.router.navigate(['product', id]);
   }
 
 }

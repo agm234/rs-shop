@@ -13,21 +13,21 @@ export interface ICardsState {
 }
 
 export interface IAuthState {
-    favorites:ICategoriesItems[];
-    cart: ICategoriesItems[];
-    username: string;
-    lastname: string;
+  favorites:ICategoriesItems[];
+  cart: ICategoriesItems[];
+  username: string;
+  lastname: string;
 }
 export interface ICategoriesItems{
-    id: string;
-    name: string;
-    imageUrls:  string[],
-    rating: number;
-    availableAmount:number;
-    price: number;
-    description: string;
-    isInCart: boolean;
-    isFavorite: boolean;
-    category: string;
-    subCategory: string;
+  id: string;
+  name: string;
+  imageUrls:  string[],
+  rating: number;
+  availableAmount:number;
+  price: number;
+  description: string;
+  isInCart: boolean;
+  isFavorite: boolean;
+  category: string;
+  subCategory: string;
 }

@@ -12,19 +12,19 @@ export const selectVideosState = createSelector(
   (state: ICardsState) => [...state.categories],
 );
 export const selectVideosItemState = createSelector(
-    selectCards,
+  selectCards,
   (state: ICardsState, props: { name: string }) => [...state.categories].find(({ name }) => name === props.name),
-  );
+);
 export const selectPopularItemsState = createSelector(
-    selectCards,
-    (state: ICardsState) => [...state.popularItems],
+  selectCards,
+  (state: ICardsState) => [...state.popularItems],
 );
 export const selectItemsState = createSelector(
-    selectCards,
-    (state: ICardsState) => [...state.categoriesItems],
+  selectCards,
+  (state: ICardsState) => [...state.categoriesItems],
 );
 export const selectItemState = createSelector(
-    selectCards,
-    (state: ICardsState) => [...state.item],
+  selectCards,
+  (state: ICardsState) => [...state.item],
 );
 

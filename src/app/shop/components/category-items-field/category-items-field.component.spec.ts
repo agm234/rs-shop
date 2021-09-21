@@ -8,9 +8,9 @@ describe('CategoryItemsFieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryItemsFieldComponent ]
+      declarations: [ CategoryItemsFieldComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

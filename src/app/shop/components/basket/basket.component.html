@@ -30,11 +30,11 @@
                 <td class="table_description">{{item.description}}</td>
                 <td class="table_count">
                     <div class="count">
-                        <span class="minus"></span>
+                        <span class="minus" (click)='minus(item.id)' ></span>
                         <div>
-                            <input id="asda" class="number" type="text" [(ngModel)]="count">
+                            <input id="asda" class="number" type="text" [(ngModel)]="itemsObject[item.id]">
                         </div>
-                        <span class="plus"></span>
+                        <span class="plus" (click)='plus(item.id)'></span>
                     </div>
                 </td>
                 <td class="table_deliver">
@@ -44,12 +44,13 @@
                     </div>
 
                 </td>
-                <td class="table_price price_td">{{item.price*count}} р.</td>
+                <td class="table_price price_td">{{(item.price*itemsObject[item.id]).toFixed(2)}} р.</td>
             </tr>
         </tbody>
     </table>
     <div class="order">
-        <button mat-button *ngIf="!isOrderActive" class="order_btn" (click)="isOrderActive=!isOrderActive">Оформить заказ</button>
+        <span>Общая стоимость <span class="final_price">{{finalPrice.toFixed(2)}} р.</span></span>
+        <button mat-button *ngIf="!isOrderActive" class="order_btn" (click)="order()">Оформить заказ</button>
     </div>
     <app-order *ngIf="isOrderActive"></app-order>
 </div>

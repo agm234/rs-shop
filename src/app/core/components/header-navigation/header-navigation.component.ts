@@ -5,22 +5,25 @@ import { LoginFormComponent } from 'src/app/auth/components/login-form/login-for
 @Component({
   selector: 'app-header-navigation',
   templateUrl: './header-navigation.component.html',
-  styleUrls: ['./header-navigation.component.scss']
+  styleUrls: ['./header-navigation.component.scss'],
 })
 export class HeaderNavigationComponent implements OnInit {
 
-  constructor(private router:Router,public dialog: MatDialog) { }
+  constructor(private router:Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
+
   navigate(){
-      this.router.navigate(['CategoryPanel'])
+    this.router.navigate(['CategoryPanel']);
   }
+
   navigateToMainPage(){
-      this.router.navigate([''])
+    this.router.navigate(['']);
   }
+
   openDialog(): void {
-      console.log(13123123)
+    console.log(13123123);
     const dialogRef = this.dialog.open(LoginFormComponent, {
     });
 
@@ -28,10 +31,12 @@ export class HeaderNavigationComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
   navigateToSelect(){
-      this.router.navigate(["select"])
+    this.router.navigate(['select']);
   }
+
   navigateToBasket(){
-    this.router.navigate(["basket"])
+    this.router.navigate(['basket']);
   }
 }

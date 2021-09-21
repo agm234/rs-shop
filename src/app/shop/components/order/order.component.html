@@ -1,47 +1,27 @@
-<form >
+<form class="form" [formGroup]="form" (submit)="onSubmit($event)">
     <div>
         <h3 class="header3">Личные данные</h3>
         <mat-form-field appearance="legacy" class="FIO">
-            <mat-label>Фамилия Имя Отчество</mat-label>
-            <input matInput>
+            <mat-label>ФИО</mat-label>
+            <input matInput formControlName="username" required maxlength="50" minlength="3">
           </mat-form-field>
     </div>
     <div>
         <h3 class="header3">Доставка</h3>
         <mat-form-field appearance="legacy" class="town">
-          <mat-label>Город/населенный пункт :</mat-label>
-          <input matInput placeholder="Минск">
+          <mat-label> Адрес :</mat-label>
+          <input formControlName="addres" matInput    required maxlength="250" minlength="3">
         </mat-form-field>
-        <div>
-            <div>
-                <mat-form-field appearance="legacy">
-                    <mat-label>Улицы, дом:</mat-label>
-                    <input matInput required>
-                  </mat-form-field>
-            </div>
-              <mat-form-field class="addres" appearance="legacy">
-                <mat-label>Подьезд:</mat-label>
-                <input matInput required>
-              </mat-form-field>
-              <mat-form-field class="addres" appearance="legacy">
-                <mat-label>Этаж:</mat-label>
-                <input matInput required>
-              </mat-form-field>
-              <mat-form-field class="addres" appearance="legacy">
-                <mat-label>Квартира:</mat-label>
-                <input matInput required>
-              </mat-form-field>
-        </div>
-        
+
         <mat-form-field  appearance="legacy">
           <mat-label>Telephone</mat-label>
-          <span matPrefix>+ &nbsp;</span>
-          <input type="tel" maxlength="12" matInput >
+          <span matPrefix>+375 &nbsp;</span>
+          <input type="tel" maxlength="9" required matInput formControlName="phone">
         </mat-form-field>
         <div>
             <mat-form-field appearance="legacy" >
                 <mat-label>Дата доставки</mat-label>
-                <input matInput [matDatepicker]="datepicker">
+                <input matInput [matDatepicker]="datepicker"  required  formControlName="date">
                 <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                 <mat-datepicker #datepicker>
                   <mat-datepicker-actions>
@@ -52,19 +32,20 @@
               </mat-form-field>
               <mat-form-field appearance="legacy">
                 <mat-label>Выберите время</mat-label>
-                <mat-select panelClass="myPanel" disableRipple>
-                    <mat-option value="0">Выберите время</mat-option>
-                 <mat-option value="1">7:00-12:00</mat-option>
-                  <mat-option value="2">12:00-16:00</mat-option>
-                  <mat-option value="3">16:00-20:00</mat-option>
-                  <mat-option value="4">20:00-23:00</mat-option>
+                <mat-select panelClass="myPanel" required formControlName="time" disableRipple>
+                 <mat-option value="7:00-12:00" >7:00-12:00</mat-option>
+                  <mat-option value="12:00-16:00">12:00-16:00</mat-option>
+                  <mat-option value="16:00-20:00">16:00-20:00</mat-option>
+                  <mat-option value="20:00-23:00">20:00-23:00</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>
-        <mat-form-field appearance="legacy">
-          <mat-label>Описание</mat-label>
-          <textarea matInput></textarea>
+        <mat-form-field class="description_wrapper" appearance="legacy">
+          <mat-label >Описание</mat-label>
+          <textarea matInput formControlName="description" maxlength="250"></textarea>
         </mat-form-field>
     </div>
-     
+    <div class="order_btns">
+        <button mat-button class="order_btn" >Подтвердить заказ</button>
+    </div>
 </form>
