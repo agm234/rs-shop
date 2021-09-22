@@ -35,3 +35,9 @@
     color: #717171;
     border-bottom: 1px solid #717171;
 }
+
+.breadcrums_item:hover {
+    cursor: pointer;
+    color: #c71245 !important;
+    border-color: #c71245;
+}

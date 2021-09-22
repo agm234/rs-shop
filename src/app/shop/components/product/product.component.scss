@@ -276,6 +276,25 @@
     color: #717171;
     border-bottom: 1px solid #717171;
 }
+
+.item_add:hover {
+    cursor: pointer;
+    color: #c71245;
+}
+.delete:hover {
+    color: #0072bc;
+}
+.btn:hover {
+    background: #c9073e;
+}
 .delete {
     color: #ea1653;
+}
+.buscet:hover {
+    background: rgb(255, 234, 234) !important;
+}
+.breadcrums_item:hover {
+    cursor: pointer;
+    color: #c71245 !important;
+    border-color: #c71245;
 }

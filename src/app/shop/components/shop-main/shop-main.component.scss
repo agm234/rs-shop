@@ -4,13 +4,65 @@
     min-height: 100%;
     min-width: 920px;
 }
+.picsum-img {
+    max-width: 1090px;
+    max-height: 500;
+}
+.picsum-img-wrapper {
+    max-width: 1090px;
+    max-height: 500;
+    width: 100%;
+    height: 100%;
+}
 .main_page {
     max-width: 1090px;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 .main-slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 30px;
+}
+.category {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.category_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    height: 50%;
+    border: 1px solid rgb(160, 160, 160);
+}
+.category_item:hover,
+.car:hover {
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.category_item div {
+    height: 114px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.category_item h2 {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+}
+.car {
+    max-width: 730px;
+    border: 1px solid rgb(160, 160, 160);
 }
 .slider_slide {
     max-width: 789px;
@@ -66,6 +118,11 @@
     text-decoration: underline;
     color: rgb(73, 131, 255);
 }
+.item_name:hover {
+    cursor: pointer;
+    color: #bc1242;
+    text-shadow: none;
+}
 .item_rating {
     width: 100%;
     height: 100%;
@@ -74,11 +131,11 @@
     background-repeat: repeat-x;
     background-position: left;
 }
-::ng-deep .carousel-control-prev-icon {
+.carousel-control-prev-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(73, 131, 255)' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
 
-::ng-deep .carousel-control-next-icon {
+.carousel-control-next-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(73, 131, 255)' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 .benefits {
@@ -124,4 +181,29 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+.carousel-indicators li {
+    width: 10px !important;
+    background-color: #cccdcf;
+    height: 10px !important;
+    border-radius: 50% !important;
+}
+
+.carousel-indicators .active {
+    width: 10px !important;
+    background-color: #0072bc;
+    height: 10px !important;
+    border-radius: 50% !important;
+}
+.electro {
+    max-width: 150px;
+    max-height: 150px;
+}
+.slide_img_wrapper:hover {
+    cursor: pointer;
+}
+.carousel-indicators {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }

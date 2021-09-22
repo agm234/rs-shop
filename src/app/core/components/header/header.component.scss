@@ -108,3 +108,15 @@
     display: flex;
     align-items: center;
 }
+.location_btn:hover,
+.payment_item:hover,
+.menu_btn:hover,
+.viber:hover {
+    cursor: pointer;
+    color: #c71245;
+    text-shadow: none;
+}
+.mat-menu-item:hover {
+    background: rgb(179, 24, 96, 0.1);
+    color: #c71245;
+}

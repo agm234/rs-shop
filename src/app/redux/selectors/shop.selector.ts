@@ -1,5 +1,4 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ICategories } from 'src/app/core/models/categories-model';
 
 
 import { AppState, ICardsState } from '../state.models';

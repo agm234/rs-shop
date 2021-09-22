@@ -34,7 +34,7 @@
     box-sizing: border-box;
     border-radius: 40px;
     background: #f7f8fa;
-    transition: 0.2s ease;
+    transition: 0.5s ease;
 }
 .catalog_btn {
     min-width: 161px;
@@ -109,4 +109,8 @@
     border-radius: 5px;
     background-color: #0077cc;
     color: #ffffff;
+}
+.header_btn:hover {
+    border: none;
+    background: #ffffff;
 }

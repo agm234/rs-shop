@@ -75,3 +75,15 @@
     color: #ea1653;
     border: 1px solid #ea1653;
 }
+.item_img_wrapper:hover,
+.item_header:hover,
+.delete:hover {
+    cursor: pointer;
+    color: #ea1653;
+}
+.buscet_btn:hover {
+    background: #c9073e;
+}
+.buscet:hover {
+    background: rgb(255, 234, 234) !important;
+}

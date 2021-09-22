@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ICategories } from '../../models/categories-model';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state.models';
 import { selectVideosState } from 'src/app/redux/selectors/shop.selector';
-import { getCategories, getCategoriesItems, getPopularItems } from '../../../redux/actions/index';
+import { getCategories,  getPopularItems } from '../../../redux/actions/index';
 import { ShopService } from 'src/app/shop/services/shop.service';
-import { GetCardsService } from '../../services/get-cards.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-category-navigation',
   templateUrl: './category-navigation.component.html',
   styleUrls: ['./category-navigation.component.scss'],
 })
-export class CategoryNavigationComponent implements OnInit {
+export class CategoryNavigationComponent  {
   categories$: Observable<ICategories[] | null> = new BehaviorSubject([]);
 
   constructor(private store: Store<AppState>, private shopService:ShopService, private router:Router) {
@@ -22,7 +21,7 @@ export class CategoryNavigationComponent implements OnInit {
     this.store.dispatch(getPopularItems({ payload:'electronics' }));
   }
 
-  ngOnInit(): void {}
+
 
   navigateToCategory(categoryId:string, categoryName:string){
     this.shopService.categoryName$.next(categoryName);

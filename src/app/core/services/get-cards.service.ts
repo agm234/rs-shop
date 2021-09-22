@@ -3,7 +3,7 @@ import { API_URL } from '../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ICategories } from '../models/categories-model';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })

@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Component } from '@angular/core';
+import {  Store } from '@ngrx/store';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
-import { getCategoriesItems } from 'src/app/redux/actions';
-import { selectItemsState } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
@@ -12,7 +10,7 @@ import { ShopService } from '../../services/shop.service';
   templateUrl: './selected-products.component.html',
   styleUrls: ['./selected-products.component.scss'],
 })
-export class SelectedProductsComponent implements OnInit {
+export class SelectedProductsComponent  {
   items$: Observable<IShopItem[] | null> = new BehaviorSubject([]);
 
   observables = [] as Array<Observable<IShopItem | null>> ;
@@ -24,12 +22,6 @@ export class SelectedProductsComponent implements OnInit {
       });
       this.items$ = forkJoin(this.observables) as Observable<IShopItem[] | null>;
     });
-
-
-
-  }
-
-  ngOnInit(): void {
   }
 
 }

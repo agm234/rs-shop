@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { getCards, getCategoriesItems } from 'src/app/redux/actions';
+import { getCards } from 'src/app/redux/actions';
 import { selectItemsState } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
 import { IShopItem } from '../../models/shop.models';
@@ -24,7 +24,7 @@ export class CategoryItemsFieldComponent implements OnInit {
 
   private subs: Subscription = new Subscription();
 
-  constructor(public routed:ActivatedRoute, private store: Store<AppState>, private shopService:ShopService) {
+  constructor(public routed:ActivatedRoute, private router:Router, private store: Store<AppState>, private shopService:ShopService) {
     this.routed.params.subscribe(( { id } ) => {
       this.id = id;
       this.shopService.loadCards((this.id?.split('_') as string[]));
@@ -40,8 +40,8 @@ export class CategoryItemsFieldComponent implements OnInit {
     this.subs.add(this.shopService.isDesc$.subscribe((data) => {
       this.isDesc = data;
     }));
-    this.subs.add(this.shopService.count$.subscribe((data) => {
-      this.shopService.loadCards((this.id?.split('_') as string[]));
+    this.subs.add(this.shopService.count$.subscribe(() => {
+      this.shopService.loadCards((this.router.url.slice(1).split('_') as string[]));
     }));
   }
 

@@ -1,6 +1,6 @@
 :host {
     display: flex;
-    align-items:flex-start;
+    align-items: flex-start;
     min-width: 920px;
     height: 42px;
     background: linear-gradient(90deg, #941e94, #e52e6b);
@@ -12,7 +12,7 @@
     margin-bottom: 30px;
 }
 .cat-navigation {
-    width:100%;
+    width: 100%;
     max-width: 1090px;
     height: 100%;
     margin: 0 auto;
@@ -46,7 +46,7 @@
     height: 16px;
     margin-top: -8px;
     border-left: 1px solid rgb(158, 158, 158);
-    margin-left:10px;
+    margin-left: 10px;
 }
 .categories {
     height: 100%;
@@ -56,9 +56,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
-.categories_item{
+.categories_item {
+    display: flex;
+    height: 100%;
+    align-items: center;
     line-height: 20px;
-    color:#ffffff;
+    color: #ffffff;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.categories_item:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }

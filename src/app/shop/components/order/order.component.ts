@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IDetails, IOrder } from '../../models/shop.models';
@@ -16,9 +15,10 @@ interface IForm{
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss'],
+
 })
 
-export class OrderComponent implements OnInit {
+export class OrderComponent {
   order:IOrder = {} as IOrder ;
 
   form:FormGroup;
@@ -44,8 +44,6 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
 
   onSubmit(event:Event){
     event.preventDefault();

@@ -64,5 +64,6 @@ import { OrderComponent } from './components/order/order.component';
     BasketComponent,
     OrderComponent,
   ],
+
 })
 export class ShopModule { }

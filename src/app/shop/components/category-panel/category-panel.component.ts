@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { ICategories, ISubCategories } from 'src/app/core/models/categories-model';
 import { selectVideosItemState, selectVideosState } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
@@ -8,14 +7,13 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ShopService } from '../../services/shop.service';
 import { Router } from '@angular/router';
-import { getSubCategoriesItems } from 'src/app/redux/actions';
 
 @Component({
   selector: 'app-category-panel',
   templateUrl: './category-panel.component.html',
   styleUrls: ['./category-panel.component.scss'],
 })
-export class CategoryPanelComponent implements OnInit {
+export class CategoryPanelComponent {
   categoryName = '';
 
   categoryId = '';
@@ -24,7 +22,8 @@ export class CategoryPanelComponent implements OnInit {
 
   subCategories?:ISubCategories[];
 
-  constructor(private store: Store<AppState>, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private shopService:ShopService, private router:Router) {
+  constructor(private store: Store<AppState>, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer,
+    private shopService:ShopService, private router:Router) {
     store.pipe(select(selectVideosState)).subscribe(data=>{
       this.categories = data;
       this.subCategory('Бытовая техника', 'appliances');
@@ -49,9 +48,6 @@ export class CategoryPanelComponent implements OnInit {
       'hobbies',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/hobbies.svg'),
     );
-  }
-
-  ngOnInit(): void {
   }
 
   subCategory(name:string, id:string){

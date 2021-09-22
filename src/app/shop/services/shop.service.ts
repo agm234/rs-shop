@@ -1,12 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { API_URL_CATITEMS, API_URL_ITEMBYID, API_URL_USER } from 'src/app/app.constants';
+import { BehaviorSubject,  Subject } from 'rxjs';
+import { API_URL_CATITEMS, API_URL_ITEMBYID } from 'src/app/app.constants';
 import { IOrder, IShopItem, IUserInfo } from '../models/shop.models';
-import { select, Store } from '@ngrx/store';
+import {  Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/state.models';
 import { getCategoriesItems, getSubCategoriesItems } from 'src/app/redux/actions';
-import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -55,8 +54,10 @@ export class ShopService {
 
   loadCards(array: Array<string>) {
     if (array.length < 2) {
+      console.log(1);
       this.store.dispatch(getCategoriesItems({ payload: array[0] }));
     } else {
+      console.log(2);
       this.store.dispatch(getSubCategoriesItems({ payload: array }));
     }
   }

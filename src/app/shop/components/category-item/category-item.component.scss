@@ -107,3 +107,24 @@
 .delete {
     color: #ea1653;
 }
+.item_name:hover,
+.cardImg:hover,
+.item_add:hover {
+    cursor: pointer;
+    color: #c71245;
+}
+.cardImg_wrapper:hover {
+    cursor: pointer;
+}
+.cardImg_wrapper:hover ~ .content_wraper .item_name {
+    color: #c71245;
+}
+.delete:hover {
+    color: #0072bc;
+}
+.buscet_btn:hover {
+    background: #c9073e;
+}
+.buscet:hover {
+    background: rgb(255, 234, 234) !important;
+}

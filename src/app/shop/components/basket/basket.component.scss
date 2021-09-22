@@ -46,6 +46,7 @@
     padding-bottom: 2px;
     border-bottom: 1px dotted #c10000;
     font-size: 10px;
+    cursor: pointer;
 }
 .table_img {
     width: 80px;
@@ -88,9 +89,10 @@
     font-weight: 600;
     font-size: 16px;
     padding-bottom: 10px;
+    padding-right: 5px;
 }
 .select {
-    width: 125px;
+    width: 135px;
     padding-bottom: 2px;
     border-bottom: 1px dotted #0072bc;
 }
@@ -111,6 +113,7 @@
     height: 31px;
     text-align: center;
     border-radius: 0;
+    border: 1px solid rgb(158, 158, 158);
 }
 .number:focus {
     border-radius: 0;
@@ -143,6 +146,9 @@
     color: white;
     border-radius: 0;
 }
+.order_btn:hover {
+    opacity: 0.8;
+}
 .order {
     display: flex;
     flex-direction: column;
@@ -156,4 +162,20 @@
     font-size: 20px;
     color: #000;
     line-height: 1;
+}
+.del {
+    color: #c71245;
+}
+.minus:hover,
+.plus:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+.table_name_name:hover,
+.select:hover {
+    color: #c71245;
+    cursor: pointer;
+}
+.del:hover {
+    color: #0072bc;
 }

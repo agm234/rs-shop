@@ -23,7 +23,7 @@
     [direction]="'vertical'"
     class="mySwiper2 right_slider"
     >
-    <ng-template swiperSlide *ngFor="let img of product.imageUrls"
+    <ng-template class="slide_wrapper" swiperSlide *ngFor="let img of product.imageUrls"
       ><img class="img"
         src="{{img}}" /></ng-template
     >

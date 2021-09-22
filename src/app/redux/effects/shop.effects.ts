@@ -4,14 +4,15 @@ import { Action } from '@ngrx/store';
 
 import { EMPTY, Observable } from 'rxjs';
 import {
-  catchError, debounceTime, map, switchMap,
+  catchError, map, switchMap,
 } from 'rxjs/operators';
-import { ICategories } from 'src/app/core/models/categories-model';
 import { ShopService } from 'src/app/shop/services/shop.service';
 
 
 import { GetCardsService } from '../../core/services/get-cards.service';
-import { fetchCategories, fetchCategoriesItems, fetchItem, fetchPopularItems, fetchSubCategoriesItems, getCategories, getCategoriesItems, getItem, getPopularItems, getSubCategoriesItems } from '../actions';
+import { fetchCategories, fetchCategoriesItems, fetchItem, fetchPopularItems, fetchSubCategoriesItems,
+  getCategories, getCategoriesItems, getItem,
+  getPopularItems, getSubCategoriesItems } from '../actions';
 
 @Injectable()
 export class CardsEffects {

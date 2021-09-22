@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { IShopItem } from '../../models/shop.models';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Thumbs } from 'swiper';
@@ -11,14 +11,9 @@ SwiperCore.use([Navigation, Thumbs]);
   styleUrls: ['./product-swiper.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ProductSwiperComponent implements OnInit {
+export class ProductSwiperComponent {
   @Input() product?: IShopItem;
 
   thumbsSwiper: any;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
@@ -9,7 +9,7 @@ import { LoginFormComponent } from '../login-form/login-form.component';
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.scss'],
 })
-export class RegisterFormComponent implements OnInit {
+export class RegisterFormComponent  {
   form:FormGroup;
 
   constructor(public dialogRef: MatDialogRef<RegisterFormComponent>, public dialog: MatDialog, private auth:AuthService) {
@@ -21,9 +21,6 @@ export class RegisterFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -32,7 +29,7 @@ export class RegisterFormComponent implements OnInit {
     this.dialogRef.close();
     const dialogRef = this.dialog.open(LoginFormComponent, {
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
     });
   }

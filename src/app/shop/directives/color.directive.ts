@@ -1,9 +1,10 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appColor]',
 })
-export class ColorDirective {
+export class ColorDirective implements OnInit {
   colorClass = '';
 
   @Input() count?:number;

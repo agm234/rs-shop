@@ -1,6 +1,6 @@
 <div class="main_page">
     <div class="main-slider">
-        <ngb-carousel *ngIf="images" [showNavigationArrows]="false">
+        <ngb-carousel class="car" *ngIf="images" [showNavigationArrows]="false" [interval] = "5000">
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
                 <img [src]="images[0]" alt="Random first slide">
@@ -17,26 +17,54 @@
               </div>
             </ng-template>
           </ngb-carousel>
+          <div class="category">
+            <div class="category_item" (click)="navogateToCategory('electronics')">
+                <span>Электроника</span>
+                <div>
+                <img class="electro"src="https://cdn21vek.by/img/galleries/6141/799/preview_b/redmi9c3gb64gbm2006c3mgnfc_xiaomi_5f4ca4d93ad5e.jpeg" alt="">
+                </div>
+            </div>
+            <div class="category_item" (click)="navogateToCategory('computers-peripherals')">
+                <span>Компьютеры</span>
+                <div>
+                    <img class="electro" src="https://cdn21vek.by/img/galleries/5784/834/preview_b/macbookpro16touchbar2019512gbmvvl2_apple_5ddd180886249.jpeg" alt="">
+                </div>
+            </div>
+            <div class="category_item" (click)="navogateToCategory('appliances')">
+                <span>Бытовая техника</span>
+                <div>
+                <img class="electro" src="https://cdn21vek.by/img/galleries/748/503/preview_b/pir2481k_polaris_5c07e8c9d4799.jpeg" alt="">
+                </div>
+            </div>
+            <div class="category_item" (click)="navogateToCategory('furniture')">
+                <span>Мебель</span>
+                <div>
+                <img class="electro" src="https://cdn21vek.by/img/galleries/916/55/preview_b/175_mebelico_07_60ec5bdb60106.jpeg" alt="">
+                </div>
+            </div>
+          </div>
     </div>
     <div class="popular_product_slider">
         <h3>Популярные товары</h3>
-        <ngb-carousel class="qweregw" [wrap]="false" [interval] = "0" [showNavigationIndicators]="false">
-            <ng-template  *ngFor="let item of items$ |async| splitpipe" ngbSlide>
-                <div class="slider_slide">
-                    <div class="slide_item" *ngFor="let it of item">
-                        <div class="slide_img_wrapper" (click)="navigateToProducts(it.id)">
-                            <img class="slide_img"  src="{{it.imageUrls[0]}}" alt="slideImg">
-                        </div>
-                        <div class="slide_item_wrapper">
-                        <span class="item_name" (click)="navigateToProducts(it.id)" >{{it.name}}</span>
+        <div class="popular_slider">
+            <ngb-carousel class="qweregw" [wrap]="false" [interval] = "0" [showNavigationIndicators]="false">
+                <ng-template  *ngFor="let item of items$ |async| splitpipe" ngbSlide>
+                    <div class="slider_slide">
+                        <div class="slide_item" *ngFor="let it of item">
+                            <div class="slide_img_wrapper" (click)="navigateToProducts(it.id)">
+                                <img class="slide_img"  src="{{it.imageUrls[0]}}" alt="slideImg">
+                            </div>
+                            <div class="slide_item_wrapper">
+                            <span class="item_name" (click)="navigateToProducts(it.id)" >{{it.name}}</span>
 
-                        <span appStars class="item_rating" [number]="it.rating" ></span>
-                        <span>{{it.price}} p.</span>
-                        </div>
-                      </div>
-                </div>
-            </ng-template>
-          </ngb-carousel>
+                            <span appStars class="item_rating" [number]="it.rating" ></span>
+                            <span>{{it.price}} p.</span>
+                            </div>
+                          </div>
+                    </div>
+                </ng-template>
+              </ngb-carousel>
+        </div>
     </div>
     <div class="benefits">
         <h2>Наши преимущества</h2>

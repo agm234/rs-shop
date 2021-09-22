@@ -3,7 +3,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 import {
   fetchCategories, fetchCategoriesItems, fetchItem, fetchPopularItems, fetchSubCategoriesItems, getCards,
 } from '../actions';
-import { ICardsState, ICategoriesItems } from '../state.models';
+import { ICardsState } from '../state.models';
 
 export const initialState: ICardsState = {
   categories: [],

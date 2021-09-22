@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ShopService } from '../../services/shop.service';
 
 @Component({
@@ -6,15 +6,13 @@ import { ShopService } from '../../services/shop.service';
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss'],
 })
-export class FiltersComponent implements OnInit {
+export class FiltersComponent {
   isDesc = false;
 
   search = '';
 
   constructor(private shopService:ShopService) { }
 
-  ngOnInit(): void {
-  }
 
   onFilter(search:string) {
     this.isDesc = !this.isDesc;

@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, forkJoin, Observable, Subscription } from 'rxjs';
 import { IShopItem } from '../../models/shop.models';
@@ -42,9 +42,9 @@ export class BasketComponent implements OnInit, OnDestroy{
         this.observables.push(this.shopService.getItem(el));
       });
       this.items$ = forkJoin(this.observables) as Observable<IShopItem[] | null>;
-      this.subscription = this.items$.subscribe(data=>{
-        this.items = data as IShopItem[];
-        data?.forEach(el=>{
+      this.subscription = this.items$.subscribe(data1=>{
+        this.items = data1 as IShopItem[];
+        data1?.forEach(el=>{
           this.itemsObject[el.id] = 1;
           this.itemsArray.push({ id:el.id, amount:1 });
           this.PriceObject[el.id] = el.price;

@@ -31,7 +31,7 @@
                 <span>Бонусная программа</span>
             </div>
             <div class="payment_item">
-                <button mat-flat-button [matMenuTriggerFor]="menu">Еще</button>
+                <button class="menu_btn" mat-flat-button [matMenuTriggerFor]="menu">Еще</button>
                 <mat-menu #menu="matMenu" [overlapTrigger]="false">
                     <button mat-menu-item>Оплата</button>
                     <button mat-menu-item>Доставка</button>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="contact">
-            <div class="contact_item">
+            <div class="contact_item viber">
                 <mat-icon
                     ><img class="viber_img" src="./assets/icons/viber.png" alt="viber"
                 /></mat-icon>
@@ -53,7 +53,7 @@
                 <span>+375 29 302 10 21</span>
             </div>
             <div class="contact_item">
-                <button mat-flat-button [matMenuTriggerFor]="iconmenu">Еще</button>
+                <button class="menu_btn" mat-flat-button [matMenuTriggerFor]="iconmenu">Еще</button>
                 <mat-menu #iconmenu="matMenu" [overlapTrigger]="false">
                     <button mat-menu-item>
                         <mat-icon>

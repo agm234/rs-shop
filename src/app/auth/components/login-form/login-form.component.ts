@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
@@ -10,7 +10,7 @@ import { RegisterFormComponent } from '../register-form/register-form.component'
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
   form:FormGroup;
 
   constructor(
