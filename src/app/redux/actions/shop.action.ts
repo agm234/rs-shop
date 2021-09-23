@@ -1,8 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 
 import { ICategories } from '../../core/models/categories-model';
-import { ICategoriesItems } from '../state.models';
-
+import { ICategoriesItems, IUserInfo } from '../state.models';
 
 export const getCategories = createAction('getCategories');
 export const fetchCategories = createAction('fetchCategories', props<{ payload: ICategories[] } >());
@@ -15,3 +14,5 @@ export const fetchSubCategoriesItems = createAction('fetchSubCategoriesItems', p
 export const getItem = createAction('getItem', props<{ payload: string, }>());
 export const fetchItem = createAction('fetchItem', props<{ payload: ICategoriesItems } >());
 export const getCards = createAction('getCards');
+export const getUserInfo = createAction('getUserInfo');
+export const fetchUserInfo = createAction('fetchUserInfo', props<{ payload: IUserInfo } >());

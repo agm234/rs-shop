@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
+import { getUserInfo } from 'src/app/redux/actions/shop.action';
+import { AppState } from 'src/app/redux/state.models';
+
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
 
@@ -13,7 +18,7 @@ export class SelectedProductsItemComponent implements OnInit {
 
   cart?:boolean;
 
-  constructor(private shopService:ShopService, private router:Router) { }
+  constructor(private store: Store<AppState>, private shopService:ShopService, private router:Router) { }
 
   ngOnInit(): void {
     this.shopService.getUser().subscribe(data=>{
@@ -27,6 +32,7 @@ export class SelectedProductsItemComponent implements OnInit {
 
   delete(id:string){
     this.shopService.deleteFromSelect(id);
+    this.store.dispatch(getUserInfo());
   }
 
   addToBasket(id:string){

@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import {  Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
+import { getUserInfo } from 'src/app/redux/actions/shop.action';
+import { selectUserInfo } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
+
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
 
@@ -16,11 +20,17 @@ export class SelectedProductsComponent  {
   observables = [] as Array<Observable<IShopItem | null>> ;
 
   constructor(private store: Store<AppState>, private shopService:ShopService) {
-    this.shopService.getUser().subscribe(data=>{
-      data.favorites. forEach(el=>{
-        this.observables.push(this.shopService.getItem(el));
+
+    this.store.dispatch(getUserInfo());
+    this.store.pipe(select(selectUserInfo)).subscribe(data=>{
+      this.observables = [];
+      data.forEach(element=>{
+        element.favorites.forEach(el=>{
+          this.observables.push(this.shopService.getItem(el));
+        });
       });
       this.items$ = forkJoin(this.observables) as Observable<IShopItem[] | null>;
+
     });
   }
 

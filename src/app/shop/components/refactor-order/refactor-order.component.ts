@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
+import { getUserInfo } from 'src/app/redux/actions/shop.action';
+import { AppState } from 'src/app/redux/state.models';
 
 import { IDetails, IOrder } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
@@ -14,13 +19,11 @@ interface IForm{
   description: string;
 }
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss'],
-
+  selector: 'app-refactor-order',
+  templateUrl: './refactor-order.component.html',
+  styleUrls: ['./refactor-order.component.scss'],
 })
-
-export class OrderComponent {
+export class RefactorOrderComponent  {
   order:IOrder = {} as IOrder ;
 
   form:FormGroup;
@@ -33,7 +36,9 @@ export class OrderComponent {
     comment: '',
   };
 
-  constructor(private shopService:ShopService, private router:Router) {
+  constructor(private shopService:ShopService, private router:Router, private store: Store<AppState>,
+    public dialogRef: MatDialogRef<RefactorOrderComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: string) {
     this.form = new FormGroup({
       username: new FormControl(''),
       addres: new FormControl(''),
@@ -46,18 +51,21 @@ export class OrderComponent {
   }
 
 
+
   onSubmit(event:Event){
     event.preventDefault();
     const data:IForm = this.form.value;
     const details = {} as IDetails;
-    this.order.items = this.shopService.itemsArray;
     details.name = data.username;
     details.address = data.addres;
     details.phone = data.phone;
     details.timeToDeliver = data.date + data.time;
     details.comment = data.description;
     this.order.details = details;
-    this.shopService.setOrder(this.order);
-    this.router.navigate(['waitlist']);
+    this.order.id = this.data;
+    this.shopService.refactorOrder(this.order);
+    this.store.dispatch(getUserInfo());
+    this.dialogRef.close();
   }
+
 }

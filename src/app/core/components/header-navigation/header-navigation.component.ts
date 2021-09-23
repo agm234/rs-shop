@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
 import { LoginFormComponent } from 'src/app/auth/components/login-form/login-form.component';
+import { ShopService } from 'src/app/shop/services/shop.service';
+
 @Component({
   selector: 'app-header-navigation',
   templateUrl: './header-navigation.component.html',
@@ -9,7 +12,7 @@ import { LoginFormComponent } from 'src/app/auth/components/login-form/login-for
 })
 export class HeaderNavigationComponent  {
 
-  constructor(private router:Router, public dialog: MatDialog) { }
+  constructor(private router:Router, public dialog: MatDialog, private shopService:ShopService) { }
 
 
   navigate(){
@@ -21,20 +24,20 @@ export class HeaderNavigationComponent  {
   }
 
   openDialog(): void {
-    console.log(13123123);
-    const dialogRef = this.dialog.open(LoginFormComponent, {
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+    this.dialog.open(LoginFormComponent, {
     });
   }
 
   navigateToSelect(){
+    this.shopService.getUser();
     this.router.navigate(['select']);
   }
 
   navigateToBasket(){
     this.router.navigate(['basket']);
+  }
+
+  navigateToWaitList(){
+    this.router.navigate(['waitlist']);
   }
 }

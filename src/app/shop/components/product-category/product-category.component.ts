@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
+
 import { ShopService } from '../../services/shop.service';
 
 @Component({
   selector: 'app-product-category',
   templateUrl: './product-category.component.html',
   styleUrls: ['./product-category.component.scss'],
+
 })
 export class ProductCategoryComponent implements OnInit {
   id:string[] = [];
@@ -24,7 +27,6 @@ export class ProductCategoryComponent implements OnInit {
         this.isLengt = false;
         this.id = id?.split('_');
       }
-      console.log( this.id = id?.split('_'));
     });
   }
 

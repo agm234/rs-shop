@@ -1,6 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+
 import { BehaviorSubject, forkJoin, Observable, Subscription } from 'rxjs';
+import { getUserInfo } from 'src/app/redux/actions/shop.action';
+import { selectUserInfo } from 'src/app/redux/selectors/shop.selector';
+import { AppState } from 'src/app/redux/state.models';
+
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
 
@@ -34,12 +40,19 @@ export class BasketComponent implements OnInit, OnDestroy{
 
   items?:IShopItem[];
 
-  constructor(private shopService:ShopService, private router:Router) {
+  isFavorite?:boolean;
+
+  constructor(private shopService:ShopService, private store: Store<AppState>, private router:Router) {
     this.count = 1;
     this.isOrderActive = false;
-    this.shopService.getUser().subscribe(data=>{
-      data.cart.forEach(el=>{
-        this.observables.push(this.shopService.getItem(el));
+    this.store.dispatch(getUserInfo());
+    this.store.pipe(select(selectUserInfo)).subscribe(data=>{
+      this.observables = [];
+      this.finalPrice = 0;
+      data.forEach(element=>{
+        element.cart.forEach(el=>{
+          this.observables.push(this.shopService.getItem(el));
+        });
       });
       this.items$ = forkJoin(this.observables) as Observable<IShopItem[] | null>;
       this.subscription = this.items$.subscribe(data1=>{
@@ -52,13 +65,10 @@ export class BasketComponent implements OnInit, OnDestroy{
         });
       });
     });
-    console.log(this.itemsArray);
   }
 
   ngOnInit(): void {
     this.isFavorites();
-
-
   }
 
   ngOnDestroy(){
@@ -83,6 +93,7 @@ export class BasketComponent implements OnInit, OnDestroy{
 
   deleteFromBasket(id:string){
     this.shopService.deleteFromBasket(id);
+    this.store.dispatch(getUserInfo());
   }
 
   navigateToProduct(id:string){
@@ -108,5 +119,12 @@ export class BasketComponent implements OnInit, OnDestroy{
     this.isOrderActive = !this.isOrderActive;
     this.shopService.itemsArray = this.itemsArray;
 
+  }
+
+  isFavoriteItem(id:string){
+    if (this.favoritesArr.includes(id)){
+      return  true;
+    }
+    return false;
   }
 }

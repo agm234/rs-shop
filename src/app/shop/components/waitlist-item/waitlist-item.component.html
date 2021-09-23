@@ -1,0 +1,18 @@
+<mat-list-item class="list_item"  *ngIf="!!item"  role="listitem">
+    <button mat-icon-button class="list_item_btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <div class="btn_info">
+        <span>Адрес доставки : {{item.details.address}}</span>
+        <span>Дата доставки : {{item.details.timeToDeliver.slice(0,15)}}</span>
+        <span>Id заказа : {{item.id}}</span>
+      </div>
+    </button>
+    <div class="order_btns">
+        <button class="refactor" (click)="openDialog()"  mat-button>Редактировать заказ</button>
+        <button class="delete" (click)="delete(item.id)" mat-button>Удалить заказ</button>
+    </div>
+      <mat-menu class="menu_order" #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item *ngFor="let product of item.items">
+            <app-waitlist-item-product class="" [product]="product"></app-waitlist-item-product>
+        </button>
+      </mat-menu>
+</mat-list-item>

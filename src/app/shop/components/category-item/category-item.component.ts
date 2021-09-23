@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AppState } from 'src/app/redux/state.models';
+
 import { IShopItem, IUserInfo } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
 

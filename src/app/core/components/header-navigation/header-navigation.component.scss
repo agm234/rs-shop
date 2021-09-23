@@ -23,6 +23,7 @@
     display: block;
     width: 126px;
     height: 40px;
+    cursor: pointer;
 }
 .header_btn {
     border: 1px solid #d5d7db;
@@ -113,4 +114,11 @@
 .header_btn:hover {
     border: none;
     background: #ffffff;
+}
+.mat_item:hover {
+    background: rgb(179, 24, 96, 0.1);
+    color: #c71245;
+}
+.mat_item:hover .mat-icon {
+    color: #c71245;
 }

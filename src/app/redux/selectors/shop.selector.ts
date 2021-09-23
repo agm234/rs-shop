@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-
 import { AppState, ICardsState } from '../state.models';
 
 export const featureKey = 'categories';
@@ -26,4 +25,9 @@ export const selectItemState = createSelector(
   selectCards,
   (state: ICardsState) => [...state.item],
 );
+export const selectUserInfo = createSelector(
+  selectCards,
+  (state: ICardsState) => [...state.userInfo],
+);
+
 

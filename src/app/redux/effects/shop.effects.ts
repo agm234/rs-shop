@@ -3,16 +3,15 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 
 import { EMPTY, Observable } from 'rxjs';
-import {
-  catchError, map, switchMap,
-} from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { ShopService } from 'src/app/shop/services/shop.service';
 
-
 import { GetCardsService } from '../../core/services/get-cards.service';
-import { fetchCategories, fetchCategoriesItems, fetchItem, fetchPopularItems, fetchSubCategoriesItems,
-  getCategories, getCategoriesItems, getItem,
-  getPopularItems, getSubCategoriesItems } from '../actions';
+import {
+  fetchCategories, fetchCategoriesItems, fetchItem, fetchPopularItems, fetchSubCategoriesItems,
+  getCategories, getCategoriesItems, getItem, getPopularItems, getSubCategoriesItems,
+} from '../actions';
+import { fetchUserInfo, getUserInfo } from '../actions/shop.action';
 
 @Injectable()
 export class CardsEffects {
@@ -58,6 +57,14 @@ export class CardsEffects {
     ofType(getItem),
     switchMap(({ payload: query }) => this.shopService.getItem(query).pipe(
       map(Items => fetchItem({ payload: Items })),
+    )),
+    catchError(() => EMPTY),
+  ));
+
+  loadUserInfo:Observable< Action > = createEffect(() => this.actions.pipe(
+    ofType(getUserInfo),
+    switchMap(() => this.shopService.getUser().pipe(
+      map(User=> fetchUserInfo({ payload: User })),
     )),
     catchError(() => EMPTY),
   ));

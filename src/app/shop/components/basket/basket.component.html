@@ -23,8 +23,8 @@
                 <td class="table_name">
                     <div class="table_name_wrapper">
                          <span class="table_name_name" (click)="navigateToProduct(item.id)">{{item.name}}</span>
-                         <span class="select" *ngIf="!favoritesArr.includes(item.id)" (click)="addToSelect(item.id)">Добавть в избранное</span>
-                         <span class="select del" *ngIf="favoritesArr.includes(item.id)" (click)="removeFromSelect(item.id)">Удалить из избранного</span>
+                         <span class="select" *ngIf="!isFavoriteItem(item.id)" (click)="addToSelect(item.id)">Добавить в избранное</span>
+                         <span class="select del" *ngIf="isFavoriteItem(item.id)" (click)="removeFromSelect(item.id)">Удалить из избранного</span>
                     </div>
                 </td>
                 <td class="table_description">{{item.description}}</td>

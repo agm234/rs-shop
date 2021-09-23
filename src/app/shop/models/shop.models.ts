@@ -41,7 +41,8 @@ export interface IUserInfo{
   ]
 }
 export interface IOrder{
-  items:IItems[],
+  id?:string;
+  items?:IItems[],
   details: IDetails;
 
 }

@@ -1,11 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject,  Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import { BehaviorSubject, Subject } from 'rxjs';
 import { API_URL_CATITEMS, API_URL_ITEMBYID } from 'src/app/app.constants';
-import { IOrder, IShopItem, IUserInfo } from '../models/shop.models';
-import {  Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/state.models';
 import { getCategoriesItems, getSubCategoriesItems } from 'src/app/redux/actions';
+import { AppState } from 'src/app/redux/state.models';
+
+import { IOrder, IShopItem, IUserInfo } from '../models/shop.models';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -23,6 +26,7 @@ export class ShopService {
   isDesc$ = new Subject<boolean>();
 
   itemsArray:{ id:string, amount:number }[] = [];
+
 
   constructor(private http: HttpClient, private store: Store<AppState>) {
     this.count$.subscribe((data) => {
@@ -54,10 +58,8 @@ export class ShopService {
 
   loadCards(array: Array<string>) {
     if (array.length < 2) {
-      console.log(1);
       this.store.dispatch(getCategoriesItems({ payload: array[0] }));
     } else {
-      console.log(2);
       this.store.dispatch(getSubCategoriesItems({ payload: array }));
     }
   }
@@ -116,5 +118,21 @@ export class ShopService {
     this.http
       .delete(`http://localhost:3004/users/cart?id=${id}`, headers)
       .subscribe();
+  }
+
+  refactorOrder(order:IOrder){
+    const header = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    const headers = { headers: header };
+    this.http.put('http://localhost:3004/users/order', order, headers).subscribe();
+  }
+
+  deleteOrder(id:string){
+    const header = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    const headers = { headers: header };
+    this.http.delete(`http://localhost:3004/users/order?id=${id}`, headers).subscribe();
   }
 }

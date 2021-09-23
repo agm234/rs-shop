@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
+
 import { getItem } from 'src/app/redux/actions';
 import { selectItemState } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
+
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',

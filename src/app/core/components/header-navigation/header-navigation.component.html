@@ -20,15 +20,16 @@
                 <img class="avatar_img" src="./assets/icons/user.png" alt="avatar_img" />
                 <button class="login_btn" (click)="openDialog()" >Войти</button>
             </div>
-            <button mat-menu-item (click)="navigateToBasket()">
+            <button mat-menu-item class="mat_item" (click)="navigateToBasket()">
                 <mat-icon>local_grocery_store</mat-icon> Корзина
             </button>
             <hr class="line" />
-            <button mat-menu-item (click)="navigateToSelect()">
+            <button mat-menu-item class="mat_item" (click)="navigateToSelect()">
                 <mat-icon>favorite_border</mat-icon>Избранные товары
             </button>
-            <button mat-menu-item><mat-icon>visibility</mat-icon>Просмотренные</button>
-            <button mat-menu-item><mat-icon>shuffle</mat-icon>Списки сравнения</button>
+            <button mat-menu-item class="mat_item"><mat-icon>visibility</mat-icon>Просмотренные</button>
+            <button mat-menu-item class="mat_item"><mat-icon>shuffle</mat-icon>Списки сравнения</button>
+            <button mat-menu-item class="mat_item" (click)="navigateToWaitList()"><mat-icon>list_alt</mat-icon>Лист ожидания</button>
         </mat-menu>
     </div>
     <div class="basket">

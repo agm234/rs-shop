@@ -1,0 +1,7 @@
+<div class="waitlist_wrapper">
+    <h2>Лист ожидания</h2>
+    <mat-list class="list" role="list" *ngIf="!!items">
+        <app-waitlist-item  *ngFor="let item of items" [item]="item"></app-waitlist-item>
+    </mat-list>
+</div>
+

@@ -1,10 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
+
 import { Observable } from 'rxjs';
 import { selectPopularItemsState } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
+
 import { IShopItem } from '../../models/shop.models';
+
 @Component({
   selector: 'app-shop-main',
   templateUrl: './shop-main.component.html',
@@ -34,7 +37,11 @@ export class ShopMainComponent {
     this.router.navigate(['product', id]);
   }
 
-  navogateToCategory(id:string){
+  navigateToCategory(id:string){
     this.router.navigate([id]);
+  }
+
+  navigateToSubCategory(id:string, subId:string){
+    this.router.navigate([`${id}_${subId}`]);
   }
 }
