@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
@@ -14,14 +14,20 @@ import { ShopService } from '../../services/shop.service';
   templateUrl: './selected-products.component.html',
   styleUrls: ['./selected-products.component.scss'],
 })
-export class SelectedProductsComponent  {
+export class SelectedProductsComponent implements OnInit {
   items$: Observable<IShopItem[] | null> = new BehaviorSubject([]);
 
   observables = [] as Array<Observable<IShopItem | null>> ;
 
   constructor(private store: Store<AppState>, private shopService:ShopService) {
 
-    this.store.dispatch(getUserInfo());
+
+  }
+
+  ngOnInit(){
+    if (localStorage.getItem('token')) {
+      this.store.dispatch(getUserInfo());
+    }
     this.store.pipe(select(selectUserInfo)).subscribe(data=>{
       this.observables = [];
       data.forEach(element=>{
@@ -33,5 +39,6 @@ export class SelectedProductsComponent  {
 
     });
   }
+
 
 }

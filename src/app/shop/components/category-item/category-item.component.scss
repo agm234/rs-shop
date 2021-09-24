@@ -49,10 +49,11 @@
     color: #ea1653;
     border: 1px solid #ea1653;
 }
-.item_name {
+.item_name_header {
     font-size: 16px;
     line-height: 1;
     text-align: center;
+    white-space: wrap !important;
     color: #0072bc;
     text-decoration: underline;
 }

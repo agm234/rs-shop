@@ -45,7 +45,14 @@ export class BasketComponent implements OnInit, OnDestroy{
   constructor(private shopService:ShopService, private store: Store<AppState>, private router:Router) {
     this.count = 1;
     this.isOrderActive = false;
-    this.store.dispatch(getUserInfo());
+
+  }
+
+  ngOnInit(): void {
+    this.isFavorites();
+    if (localStorage.getItem('token')) {
+      this.store.dispatch(getUserInfo());
+    }
     this.store.pipe(select(selectUserInfo)).subscribe(data=>{
       this.observables = [];
       this.finalPrice = 0;
@@ -65,10 +72,6 @@ export class BasketComponent implements OnInit, OnDestroy{
         });
       });
     });
-  }
-
-  ngOnInit(): void {
-    this.isFavorites();
   }
 
   ngOnDestroy(){

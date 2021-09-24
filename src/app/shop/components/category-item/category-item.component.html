@@ -4,7 +4,7 @@
     </div>
 
     <mat-card-content class="content_wraper">
-      <h3 class="item_name" (click)="navigateToProduct(item.id)">{{item.name}}</h3>
+      <h3 class="item_name_header" (click)="navigateToProduct(item.id)">{{item.name}}</h3>
       <div class="count" appColor [count]="item.availableAmount" *ngIf="item.availableAmount>0">
         <mat-icon class="icon">check_circle_outline</mat-icon>
         <span>В наличие </span>

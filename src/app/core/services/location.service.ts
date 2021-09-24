@@ -1,23 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { IIp, ILocation } from '../models/categories-model';
+import { BehaviorSubject } from 'rxjs';
+
+import { LocationResponse } from '../models/categories-model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocationService {
+  city$ = new BehaviorSubject('');
 
-  constructor(private http: HttpClient) { }
-
-  getIP():string {
-    this.http.get<IIp>('http://api.ipify.org/?format=json').subscribe(data=>{
-      return data;
-    });
-    return '';
+  constructor(private http: HttpClient) {
   }
 
-  getLocation(ip:string){
-    return this.http.get<ILocation>(`http://ip-api.com/json/${ip}`);
+  getCity() {
+    const success = (position: GeolocationPosition) => {
+      const { latitude } = position.coords;
+      const { longitude } = position.coords;
+
+      this.http
+        .get<LocationResponse>(
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=ru`,
+      )
+        .subscribe((data) => {
+          this.city$.next(data.city);
+        });
+    };
+    navigator.geolocation.getCurrentPosition(success);
   }
 }
