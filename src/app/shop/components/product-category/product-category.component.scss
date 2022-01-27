@@ -2,7 +2,7 @@
     display: block;
     width: 100%;
     min-height: 100%;
-    min-width: 920px;
+    min-width: 500px;
 }
 .category_items {
     max-width: 1090px;
@@ -40,4 +40,10 @@
     cursor: pointer;
     color: #c71245 !important;
     border-color: #c71245;
+}
+@media (max-width: 1130px) {
+    .breadcrums,
+    .category_items h3 {
+        padding-left: 5%;
+    }
 }

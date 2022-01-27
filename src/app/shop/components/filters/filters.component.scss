@@ -14,3 +14,8 @@
     cursor: pointer;
     color: #c71245;
 }
+@media (max-width: 1130px) {
+    .sortBtns {
+        padding-left: 5%;
+    }
+}

@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
+import { NgModule } from '@angular/core';
+
 import { SharedModule } from '../shared/shared.module';
+import {
+    CategoryNavigationComponent
+} from './components/category-navigation/category-navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeaderNavigationComponent } from './components/header-navigation/header-navigation.component';
-import { CategoryNavigationComponent } from './components/category-navigation/category-navigation.component';
+import {
+    HeaderNavigationComponent
+} from './components/header-navigation/header-navigation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +18,7 @@ import { CategoryNavigationComponent } from './components/category-navigation/ca
     FooterComponent,
     HeaderNavigationComponent,
     CategoryNavigationComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +29,7 @@ import { CategoryNavigationComponent } from './components/category-navigation/ca
     HeaderComponent,
     FooterComponent,
     HeaderNavigationComponent,
+    SearchComponent,
   ],
 })
 export class CoreModule { }

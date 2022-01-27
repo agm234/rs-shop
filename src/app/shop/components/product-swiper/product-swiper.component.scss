@@ -74,3 +74,8 @@
 .slide_wrapper:hover {
     cursor: grab;
 }
+@media (max-width: 1000px) {
+    .right_slider {
+        width: 500px;
+    }
+}

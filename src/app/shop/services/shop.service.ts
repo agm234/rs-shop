@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { BehaviorSubject, Subject } from 'rxjs';
-import { API_URL_CATITEMS, API_URL_ITEMBYID } from 'src/app/app.constants';
+import { API_URL_CATITEMS, API_URL_ITEMBYID, URL } from 'src/app/app.constants';
 import { getCategoriesItems, getSubCategoriesItems } from 'src/app/redux/actions';
 import { AppState } from 'src/app/redux/state.models';
 
@@ -70,7 +70,7 @@ export class ShopService {
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
     this.http
-      .post('http://localhost:3004/users/favorites', { id: id }, headers)
+      .post(`${URL}users/favorites`, { id: id }, headers)
       .subscribe();
   }
 
@@ -79,7 +79,7 @@ export class ShopService {
       .set('Content-Type', 'application/json')
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
-    return this.http.get<IUserInfo>('http://localhost:3004/users/userInfo', headers);
+    return this.http.get<IUserInfo>(`${URL}users/userInfo`, headers);
   }
 
   setOrder(order:IOrder) {
@@ -87,7 +87,7 @@ export class ShopService {
       .set('Content-Type', 'application/json')
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
-    this.http.post('http://localhost:3004/users/order', order, headers).subscribe();
+    this.http.post(`${URL}users/order`, order, headers).subscribe();
   }
 
   addToBasket(id: string) {
@@ -96,7 +96,7 @@ export class ShopService {
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
     this.http
-      .post('http://localhost:3004/users/cart', { id: id }, headers)
+      .post(`${URL}users/cart`, { id: id }, headers)
       .subscribe();
   }
 
@@ -106,7 +106,7 @@ export class ShopService {
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
     this.http
-      .delete(`http://localhost:3004/users/favorites?id=${id}`, headers)
+      .delete(`${URL}users/favorites?id=${id}`, headers)
       .subscribe();
   }
 
@@ -116,7 +116,7 @@ export class ShopService {
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
     this.http
-      .delete(`http://localhost:3004/users/cart?id=${id}`, headers)
+      .delete(`${URL}users/cart?id=${id}`, headers)
       .subscribe();
   }
 
@@ -125,7 +125,7 @@ export class ShopService {
       .set('Content-Type', 'application/json')
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
-    this.http.put('http://localhost:3004/users/order', order, headers).subscribe();
+    this.http.put(`${URL}users/order`, order, headers).subscribe();
   }
 
   deleteOrder(id:string){
@@ -133,6 +133,6 @@ export class ShopService {
       .set('Content-Type', 'application/json')
       .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const headers = { headers: header };
-    this.http.delete(`http://localhost:3004/users/order?id=${id}`, headers).subscribe();
+    this.http.delete(`${URL}users/order?id=${id}`, headers).subscribe();
   }
 }

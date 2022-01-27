@@ -4,8 +4,8 @@
     justify-content: space-evenly;
     align-items: center;
     position: relative;
-    width: 30vw;
-    height: 50vh;
+    width: 480px;
+    height: 500px;
 }
 .form {
     width: 80%;
@@ -49,4 +49,16 @@
 .form_close:hover {
     cursor: pointer;
     color: #c71245;
+}
+@media (max-width: 1100px) {
+    :host {
+        width: 420px;
+        height: 460px;
+    }
+}
+@media (max-width: 670px) {
+    :host {
+        width: 260px;
+        height: 320px;
+    }
 }

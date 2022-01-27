@@ -7,10 +7,7 @@
             <mat-icon matPrefix>dashboard</mat-icon> Каталог товаров
         </button>
     </div>
-    <div class="search">
-        <mat-icon matPrefix class="search_icon">search</mat-icon>
-        <input class="search_input" matInput type="search" placeholder="Поиск товаров" />
-    </div>
+    <app-search></app-search>
     <div class="account">
         <button class="header_btn account_btn" [matMenuTriggerFor]="account" >
             <mat-icon>login</mat-icon> Аккаунт

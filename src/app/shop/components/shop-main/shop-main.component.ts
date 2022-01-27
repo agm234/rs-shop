@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 
@@ -15,7 +15,7 @@ import { IShopItem } from '../../models/shop.models';
   encapsulation: ViewEncapsulation.None,
 
 })
-export class ShopMainComponent {
+export class ShopMainComponent implements OnInit{
   images = [
     'https://www.21vek.by/img/tmp/banners/6144493ee5240730х440_21vek_iPad 2021.jpg?1632215938',
     'https://www.21vek.by/img/tmp/banners/6148676a5d4ae730x440_21Vek_Stulya_SAIT_RGB.jpg?1632135024',
@@ -23,6 +23,8 @@ export class ShopMainComponent {
   ];
 
   items$:Observable<IShopItem[]>;
+
+  width?:number;
 
   showNavigationArrows = false;
 
@@ -32,6 +34,9 @@ export class ShopMainComponent {
     this.items$ = store.pipe(select(selectPopularItemsState));
   }
 
+  ngOnInit(){
+    this.width = window.innerWidth;
+  }
 
   navigateToProducts(id:string){
     this.router.navigate(['product', id]);
@@ -43,5 +48,10 @@ export class ShopMainComponent {
 
   navigateToSubCategory(id:string, subId:string){
     this.router.navigate([`${id}_${subId}`]);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.width = event.target.innerWidth;
   }
 }

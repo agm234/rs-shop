@@ -6,7 +6,6 @@
             <tr class="table_header">
                 <th class="th table_img"></th>
                 <th class="th table_name ">Товар</th>
-                <th class="table_description th">Описание</th>
                 <th class="table_count th">Количество</th>
                 <th class="table_deliver th">Доставка</th>
                 <th class="table_price th">Стоимость</th>
@@ -27,7 +26,6 @@
                          <span class="select del" *ngIf="isFavoriteItem(item.id)" (click)="removeFromSelect(item.id)">Удалить из избранного</span>
                     </div>
                 </td>
-                <td class="table_description">{{item.description}}</td>
                 <td class="table_count">
                     <div class="count">
                         <span class="minus" (click)='minus(item.id)' ></span>
