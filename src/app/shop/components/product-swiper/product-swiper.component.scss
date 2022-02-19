@@ -42,10 +42,6 @@
     border: 2px solid #4524ff;
 }
 
-.swiper-slide img {
-    object-fit: cover;
-}
-
 .left_slider {
     max-width: 70px;
     width: 100%;
@@ -77,5 +73,10 @@
 @media (max-width: 1000px) {
     .right_slider {
         width: 500px;
+    }
+}
+@media (max-width: 500px) {
+    .swiper-slide .img {
+        max-width: 300px;
     }
 }

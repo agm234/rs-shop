@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { ICategories } from '../../models/categories-model';
-import { select, Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/state.models';
-import { selectVideosState } from 'src/app/redux/selectors/shop.selector';
-import { getCategories,  getPopularItems } from '../../../redux/actions/index';
-import { ShopService } from 'src/app/shop/services/shop.service';
 import { Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+
+import { BehaviorSubject, Observable } from 'rxjs';
+import { selectVideosState } from 'src/app/redux/selectors/shop.selector';
+import { AppState } from 'src/app/redux/state.models';
+import { ShopService } from 'src/app/shop/services/shop.service';
+
+import { getCategories, getPopularItems } from '../../../redux/actions/index';
+import { ICategories } from '../../models/categories-model';
+
 @Component({
   selector: 'app-category-navigation',
   templateUrl: './category-navigation.component.html',
@@ -25,7 +28,7 @@ export class CategoryNavigationComponent  {
 
   navigateToCategory(categoryId:string, categoryName:string){
     this.shopService.categoryName$.next(categoryName);
-    this.shopService.count$.next(10);
+    this.shopService.count = 10;
     this.router.navigate([`${categoryId}`]);
   }
 }

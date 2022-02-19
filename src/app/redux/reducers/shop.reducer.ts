@@ -1,8 +1,8 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
 import {
-  fetchCategories, fetchCategoriesItems, fetchItem, fetchPopularItems, fetchSubCategoriesItems,
-  getCards,
+    fetchCategories, fetchCategoriesItems, fetchItem, fetchPopularItems, fetchSubCategoriesItems,
+    getCards
 } from '../actions';
 import { fetchUserInfo } from '../actions/shop.action';
 import { ICardsState } from '../state.models';

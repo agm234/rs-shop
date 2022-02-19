@@ -13,40 +13,39 @@ import { IShopItem } from '../../models/shop.models';
   templateUrl: './shop-main.component.html',
   styleUrls: ['./shop-main.component.scss'],
   encapsulation: ViewEncapsulation.None,
-
 })
-export class ShopMainComponent implements OnInit{
+export class ShopMainComponent implements OnInit {
   images = [
-    'https://www.21vek.by/img/tmp/banners/6144493ee5240730х440_21vek_iPad 2021.jpg?1632215938',
-    'https://www.21vek.by/img/tmp/banners/6148676a5d4ae730x440_21Vek_Stulya_SAIT_RGB.jpg?1632135024',
-    'https://www.21vek.by/img/tmp/banners/613ef990610db730x440_bosch.jpg?1632206334',
+    '../../../../assets/icons/ipad.jpg',
+    '../../../../assets/icons/lg.jpg',
+    '../../../../assets/icons/karcher.jpg',
   ];
 
-  items$:Observable<IShopItem[]>;
+  items$: Observable<IShopItem[]>;
 
-  width?:number;
+  width?: number;
 
   showNavigationArrows = false;
 
   showNavigationIndicators = true;
 
-  constructor(private store: Store<AppState>, private router:Router) {
+  constructor(private store: Store<AppState>, private router: Router) {
     this.items$ = store.pipe(select(selectPopularItemsState));
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.width = window.innerWidth;
   }
 
-  navigateToProducts(id:string){
+  navigateToProducts(id: string) {
     this.router.navigate(['product', id]);
   }
 
-  navigateToCategory(id:string){
+  navigateToCategory(id: string) {
     this.router.navigate([id]);
   }
 
-  navigateToSubCategory(id:string, subId:string){
+  navigateToSubCategory(id: string, subId: string) {
     this.router.navigate([`${id}_${subId}`]);
   }
 

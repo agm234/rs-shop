@@ -1,6 +1,6 @@
 :host {
     display: block;
-    min-width: 500px;
+    min-width: 425px;
     background: #f7f8fa;
     font-family: "Roboto";
     font-style: normal;
@@ -115,4 +115,9 @@
 .mat-menu-item:hover {
     background: rgb(179, 24, 96, 0.1);
     color: #c71245;
+}
+@media (max-width: 450px) {
+    .viber {
+        display: none;
+    }
 }

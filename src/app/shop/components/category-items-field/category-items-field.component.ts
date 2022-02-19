@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
+
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { getCards } from 'src/app/redux/actions';
 import { selectItemsState } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
+
 import { IShopItem } from '../../models/shop.models';
 import { ShopService } from '../../services/shop.service';
 
@@ -33,6 +35,7 @@ export class CategoryItemsFieldComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.subs.add(this.shopService.filter$.subscribe((data) => {
       this.filter = data;
       this.store.dispatch(getCards());
@@ -40,13 +43,15 @@ export class CategoryItemsFieldComponent implements OnInit {
     this.subs.add(this.shopService.isDesc$.subscribe((data) => {
       this.isDesc = data;
     }));
-    this.subs.add(this.shopService.count$.subscribe(() => {
-      this.shopService.loadCards((this.router.url.slice(1).split('_') as string[]));
-    }));
+
   }
 
   load(){
     this.shopService.count$.next((this.shopService.count as number) + 10);
+    this.subs.add(this.shopService.count$.subscribe(() => {
+      console.log('asfas');
+      this.shopService.loadCards((this.router.url.slice(1).split('_') as string[]));
+    }));
   }
 
 }

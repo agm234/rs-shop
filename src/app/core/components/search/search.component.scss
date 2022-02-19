@@ -36,6 +36,7 @@
     position: relative;
 }
 .search_result {
+    display: none;
     position: absolute;
     top: 46px;
     z-index: 100;
@@ -45,6 +46,9 @@
     max-height: 400px;
     overflow: hidden;
     overflow-y: auto;
+}
+.search_result_hidden {
+    display: block;
 }
 .item_img {
     max-width: 70px;
@@ -88,4 +92,13 @@
     font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: 700;
+}
+@media (max-width: 883px) {
+    :host {
+        order: 1;
+        width: 100%;
+    }
+    .search_input {
+        width: 100vw;
+    }
 }

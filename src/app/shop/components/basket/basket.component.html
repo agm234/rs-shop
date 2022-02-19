@@ -15,7 +15,7 @@
             <tr class="basket_item" *ngFor="let item of items$|async">
                 <td class="table_img">
                     <div class="table_img_wrapper">
-                        <img class="item_img" (click)="navigateToProduct(item.id)" src="{{item.imageUrls[0]}}" alt="img">
+                        <img class="item_img" (click)="navigateToProduct(item.id)" onerror="this.src='../../../../assets/icons/noFoto.png'" src="{{item.imageUrls[0]}}" alt="img">
                         <span class="delete" (click)="deleteFromBasket(item.id)" >Удалить</span>
                     </div>
                     </td>

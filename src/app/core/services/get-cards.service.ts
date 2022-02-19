@@ -12,6 +12,7 @@ import { ICategories } from '../models/categories-model';
 })
 export class GetCardsService {
 
+
   items$ = new BehaviorSubject<ICategories[]>([]);
 
   constructor(private http: HttpClient) {

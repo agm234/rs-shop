@@ -2,7 +2,7 @@
     display: block;
     width: 100%;
     min-height: 100%;
-    min-width: 500px;
+    min-width: 425px;
 }
 .busket_table {
     border-top: 1px solid rgb(158, 158, 158);
@@ -194,5 +194,11 @@
     .number {
         width: 40px;
         height: 28px;
+    }
+}
+
+@media (max-width: 500px) {
+    .table_deliver {
+        display: none;
     }
 }

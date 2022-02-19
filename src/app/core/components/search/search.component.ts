@@ -14,6 +14,8 @@ import { GetCardsService } from '../../services/get-cards.service';
 export class SearchComponent {
   searchStr = '';
 
+  isSearch$ = new BehaviorSubject<boolean>(false);
+
   search$: Observable<IShopItem[] | null> = new BehaviorSubject([]);
 
   constructor(private getCardsService:GetCardsService, private router:Router) { }
@@ -23,8 +25,17 @@ export class SearchComponent {
   }
 
   navigateToitem(id:string){
+    this.isSearch$.next(true);
     this.searchStr = '';
     this.router.navigate(['product', id]);
+  }
+
+  showSearchResulst(){
+    this.isSearch$.next(true);
+  }
+
+  hideSearchResults(){
+    this.isSearch$.next(false);
   }
 
 }

@@ -1,8 +1,7 @@
 <mat-card *ngIf="!!item" class="example-card">
     <div class="cardImg_wrapper" (click)="navigateToProduct(item.id)">
-        <img mat-card-image class="cardImg" [src]="item.imageUrls[0]" alt="Photo of product">
+        <img onerror="this.src='../../../../assets/icons/noFoto.png'"  mat-card-image class="cardImg" [src]="item.imageUrls[0]"  alt="Photo of product">
     </div>
-
     <mat-card-content class="content_wraper">
       <h3 class="item_name_header" (click)="navigateToProduct(item.id)">{{item.name}}</h3>
       <div class="count" appColor [count]="item.availableAmount" *ngIf="item.availableAmount>0">

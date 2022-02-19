@@ -41,4 +41,11 @@ export class AuthService {
     });
 
   }
+
+  isLogined(){
+    if (window.localStorage.getItem('token') !== null){
+      return true;
+    }
+    return false;
+  }
 }

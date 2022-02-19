@@ -3,16 +3,16 @@
         <ngb-carousel class="car" *ngIf="images" [showNavigationArrows]="false" [interval] = "5000">
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper " (click)=" navigateToProducts('612e84906caaf458a76b92f2')">
-                <img [src]="images[0]" alt="Random first slide">
+                <img src="../../../../assets/icons/ipad.jpg" alt="Random first slide">
               </div>
             </ng-template>
             <ng-template ngbSlide>
-              <div class="picsum-img-wrapper" (click)="navigateToSubCategory('furniture','chairs')">
+              <div class="picsum-img-wrapper" (click)="navigateToProducts('612fcd836259d6b455214ba9')">
                 <img [src]="images[1]" alt="Random second slide">
               </div>
             </ng-template>
             <ng-template ngbSlide>
-              <div class="picsum-img-wrapper" (click)=" navigateToProducts('KGN39AW32RL')">
+              <div class="picsum-img-wrapper" (click)=" navigateToProducts('612dc77ae5d9c9eefb40af82')">
                 <img [src]="images[2]" alt="Random third slide">
               </div>
             </ng-template>

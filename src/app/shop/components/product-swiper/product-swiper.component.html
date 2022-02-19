@@ -10,7 +10,7 @@
     >
 
     <ng-template swiperSlide class="img_container" *ngFor="let img of product.imageUrls"
-      ><img class="img_left"
+      ><img class="img_left" onerror="this.src='../../../../assets/icons/noFoto.png'"
         src="{{img}}" /></ng-template
     >
     </swiper>
@@ -23,7 +23,7 @@
     class="mySwiper2 right_slider"
     >
     <ng-template class="slide_wrapper" swiperSlide *ngFor="let img of product.imageUrls"
-      ><img class="img"
+      ><img class="img" onerror="this.src='../../../../assets/icons/noFoto.png'"
         src="{{img}}" /></ng-template
     >
     </swiper>

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { LoginFormComponent } from 'src/app/auth/components/login-form/login-form.component';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { ShopService } from 'src/app/shop/services/shop.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { ShopService } from 'src/app/shop/services/shop.service';
 })
 export class HeaderNavigationComponent  {
 
-  constructor(private router:Router, public dialog: MatDialog, private shopService:ShopService) { }
+  constructor(private router:Router, public dialog: MatDialog, private shopService:ShopService, private authService:AuthService) { }
 
 
   navigate(){
@@ -39,5 +40,15 @@ export class HeaderNavigationComponent  {
 
   navigateToWaitList(){
     this.router.navigate(['waitlist']);
+  }
+
+  isLogin(){
+    if (this.authService.isLogined()){
+      document.querySelector('.avatar_img')?.classList.add('logined');
+    } else {
+      document.querySelector('.avatar_img')?.classList.remove('logined');
+    }
+    return this.authService.isLogined();
+
   }
 }

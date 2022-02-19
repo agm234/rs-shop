@@ -101,3 +101,37 @@
 .mat_item:hover .mat-icon {
     color: #c71245;
 }
+.large-screen {
+    display: flex;
+}
+.small-screen {
+    display: none;
+}
+.logined {
+    width: 64px;
+    height: 64px;
+}
+@media (max-width: 574px) {
+    .catalog,
+    .account,
+    .basket {
+        max-width: 100px;
+    }
+    .logo img {
+        width: 105px;
+    }
+    .catalog_btn,
+    .account_btn,
+    .basket_btn {
+        min-width: 100px;
+    }
+    .header_nav {
+        justify-content: space-evenly;
+    }
+    .large-screen {
+        display: none;
+    }
+    .small-screen {
+        display: flex;
+    }
+}

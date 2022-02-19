@@ -1,6 +1,6 @@
 <div *ngIf="!!item" class="item_wrapper">
     <div class="item_img_wrapper" (click)=" navigateToProduct(item.id)" >
-        <img class="item_img" src="{{item.imageUrls[0]}}" alt="item img">
+        <img class="item_img" onerror="this.src='../../../../assets/icons/noFoto.png'" src="{{item.imageUrls[0]}}" alt="item img">
     </div>
     <div class="item_info">
         <span class="item_header" (click)=" navigateToProduct(item.id)">{{item.name}}</span>

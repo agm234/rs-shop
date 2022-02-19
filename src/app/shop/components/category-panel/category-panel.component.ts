@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
+
 import { ICategories, ISubCategories } from 'src/app/core/models/categories-model';
 import { selectVideosItemState, selectVideosState } from 'src/app/redux/selectors/shop.selector';
 import { AppState } from 'src/app/redux/state.models';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+
 import { ShopService } from '../../services/shop.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-panel',
@@ -59,7 +61,7 @@ export class CategoryPanelComponent {
   }
 
   navigateToCategory(categoryId:string){
-    this.shopService.count$.next(10);
+    this.shopService.count = 10;
     this.router.navigate([`${this.categoryId}_${categoryId}`]);
   }
 
