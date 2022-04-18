@@ -1,0 +1,204 @@
+:host {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+    min-width: 425px;
+}
+.busket_table {
+    border-top: 1px solid rgb(158, 158, 158);
+    padding-top: 10px;
+    width: 100%;
+}
+.basket_wrapper {
+    max-width: 1090px;
+    margin: 0 auto;
+}
+.table_header th {
+    height: 59px;
+    align-items: center;
+}
+.basket_item td {
+    padding-top: 10px;
+    border-top: 1px dotted rgb(158, 158, 158);
+    height: 59px;
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+.item_img {
+    max-width: 70px;
+    max-height: 70px;
+    padding-bottom: 5px;
+}
+.table_img_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.table_name_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.delete {
+    color: #c10000;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted #c10000;
+    font-size: 10px;
+    cursor: pointer;
+}
+.table_img {
+    width: 70px;
+}
+
+.table_name {
+    width: 222px;
+    padding: 16px 0;
+    color: #0072bc;
+    line-height: 18px;
+    font-size: 12px;
+}
+.table_description {
+    width: 272px;
+}
+.table_count {
+    width: 196px;
+    text-align: center;
+}
+.table_deliver {
+    width: 192px;
+}
+.table_price {
+    width: 128px;
+}
+.busket_list {
+    width: 100%;
+    height: 100%;
+}
+.deliver_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.th {
+    color: #000000;
+    font-size: 16px;
+}
+.table_name_name {
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+}
+.select {
+    width: 135px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted #0072bc;
+}
+.price_td {
+    line-height: 1;
+    font-size: 14px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+}
+.count {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.number {
+    width: 45px;
+    height: 31px;
+    text-align: center;
+    border-radius: 0;
+    border: 1px solid rgb(158, 158, 158);
+}
+.number:focus {
+    border-radius: 0;
+}
+.minus {
+    width: 31px;
+    height: 31px;
+    background-color: #ededed;
+    background-image: url(../../../../assets/icons/minus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.plus {
+    width: 31px;
+    height: 31px;
+    background-color: #ededed;
+    background-image: url(../../../../assets/icons/plus.png#EDEDED;);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.number:focus {
+    border-color: #7c53a6;
+}
+.header3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+.order_btn {
+    background-color: #0072bc;
+    color: white;
+    border-radius: 0;
+}
+.order_btn:hover {
+    opacity: 0.8;
+}
+.order {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px dotted rgb(158, 158, 158);
+}
+.final_price {
+    font-size: 20px;
+    color: #000;
+    line-height: 1;
+}
+.del {
+    color: #c71245;
+}
+.minus:hover,
+.plus:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+.table_name_name:hover,
+.select:hover {
+    color: #c71245;
+    cursor: pointer;
+}
+.del:hover {
+    color: #0072bc;
+}
+@media (max-width: 1100px) {
+    .basket_wrapper {
+        padding-right: 2%;
+        padding-left: 2%;
+    }
+}
+@media (max-width: 560px) {
+    .minus,
+    .plus {
+        width: 28px;
+        height: 28px;
+    }
+    .number {
+        width: 40px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 500px) {
+    .table_deliver {
+        display: none;
+    }
+}

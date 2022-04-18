@@ -1,0 +1,5 @@
+<div class="cards_fiels">
+    <app-category-item *ngFor="let item of items$| async|sortByPrice: isDesc : filter|sortByPopularity: isDesc : filter" [item]="item"></app-category-item>
+</div>
+
+<button mat-button class="load_btn" (click)="load()">Показать больше</button>

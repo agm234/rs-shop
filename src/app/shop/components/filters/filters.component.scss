@@ -1,0 +1,21 @@
+.sortBtns {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    border-top: 1px solid #cccdcf;
+    border-bottom: 1px solid #cccdcf;
+}
+.sort_btn {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.sort_btn:hover {
+    cursor: pointer;
+    color: #c71245;
+}
+@media (max-width: 1130px) {
+    .sortBtns {
+        padding-left: 5%;
+    }
+}

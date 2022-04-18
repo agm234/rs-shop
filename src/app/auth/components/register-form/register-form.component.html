@@ -1,0 +1,26 @@
+<form class="form" [formGroup]="form" (submit)="onSubmit($event)">
+    <h2 class="form_header">Регестрация</h2>
+    <mat-icon aria-hidden="false"  (click)="onNoClick()" class="form_close">close</mat-icon>
+    <div class="nav-to-login" (click)="loginForm()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" >arrow_circle_left</mat-icon>
+        <span>Назад</span>
+    </div>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Фамилия</mat-label>
+        <input class="input" formControlName="firstName" type="text" matInput required>
+      </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Имя</mat-label>
+        <input class="input" formControlName="lastName" type="text" matInput required>
+      </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Логин</mat-label>
+        <input class="input" formControlName="login" type="text" matInput placeholder="text" required>
+      </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input class="input" formControlName="password" type="password" matInput required>
+      </mat-form-field>
+    <button class="btn_login" mat-button>Регестрация</button>
+</form>
+

@@ -1,0 +1,109 @@
+:host {
+    display: block;
+    background: #f7f8fa;
+    min-height: 100px;
+    min-width: 425px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+}
+footer {
+    max-width: 1090px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.footer_contacts {
+    display: flex;
+    min-height: 40px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    border-top: 1px solid #cccdcf;
+    border-bottom: 1px solid #cccdcf;
+    margin-bottom: 5px;
+}
+.footer_contacts_item {
+    display: flex;
+    align-items: center;
+    margin: 5px 15px;
+}
+.telegram_img {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+.footer_social {
+    display: flex;
+    width: 100%;
+    max-width: 220px;
+    justify-content: space-between;
+}
+.social_items {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.maticon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.telegram {
+    color: #0088cc;
+}
+.hover:hover {
+    cursor: pointer;
+    color: #c71245;
+    text-shadow: none;
+}
+.hover:hover .telegram {
+    color: #c71245;
+}
+.vk:hover,
+.facebook:hover {
+    background: #447dbd;
+}
+.vk:hover svg path,
+.facebook:hover svg path,
+.youtube:hover svg path,
+.ok:hover svg path,
+.inst:hover svg path {
+    fill: #ffffff;
+}
+.inst svg {
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.youtube:hover {
+    background: #ff2638;
+}
+.ok:hover {
+    background: #fa9019;
+}
+.inst:hover {
+    background: radial-gradient(
+            circle farthest-corner at 35% 90%,
+            #fec564,
+            transparent 50%
+        ),
+        radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+        linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}

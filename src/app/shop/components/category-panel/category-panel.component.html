@@ -1,0 +1,16 @@
+<div class="category_panel" >
+    <aside class="aside">
+        <div class="main_category_item">
+            <span class="main_category_item_name"  *ngFor="let card of categories" (mouseover)="subCategory(card.name,card.id)">
+                <mat-icon class="category_icon" svgIcon="{{card.id}}"></mat-icon>{{card.name}}</span>
+        </div>
+    </aside>
+    <div class="sub_categories">
+        <h1>{{categoryName}}</h1>
+        <div class="sub_category_field">
+        <div class="sub_category_item" (click)="navigateToCategory(subCard.id)" *ngFor="let subCard of subCategories">
+            <span class="sub_category_item_name"  >{{subCard.name}}</span>
+        </div>
+    </div>
+    </div>
+</div>

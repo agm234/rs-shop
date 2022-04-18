@@ -1,0 +1,16 @@
+<form class="form" [formGroup]="form" (submit)="onSubmit($event)">
+    <h2>Вход</h2>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="onNoClick()" class="form_close">close</mat-icon>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Логин</mat-label>
+        <input class="input" formControlName="login" type="text" matInput placeholder="login" required>
+      </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input class="input" formControlName="password" type="password" matInput required>
+      </mat-form-field>
+    <button class="btn_login" mat-button>Войти</button>
+</form>
+<div class="register-wrapper">
+    <span class="register" (click)="register()">Регестрация</span>
+</div>

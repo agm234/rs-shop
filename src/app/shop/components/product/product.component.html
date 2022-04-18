@@ -1,0 +1,64 @@
+<div class="product_wrapper" *ngFor="let product of item">
+    <div class="breadcrums">
+        <span (click)="navigate('')" class="breadcrums_item">Home</span>
+        <span>></span>
+        <span  (click)="navigate(product.category)"class="breadcrums_item">{{product.category}}</span>
+        <span>></span>
+        <span class="breadcrums_item"  (click)="navigate(product.category,product.subCategory)">{{product.subCategory}}</span>
+    </div>
+    <h2>{{product.name}}</h2>
+    <span appStars class="product_rating" [number]="product.rating" ></span>
+    <div class="slider_and_info">
+        <div class="slider">
+            <img class="populat_img" *ngIf="product.rating>4" src="./assets/icons/popular.png" alt="">
+           <app-product-swiper [product]="product"></app-product-swiper>
+        </div>
+        <div class="info">
+            <div class="product_info">
+                <span class="item_price">{{product.price}}<span> р.</span></span>
+                <div class="item_deliver">
+                    <mat-icon class="deliver_icon">  incomplete_circle</mat-icon>
+                    <div class="item_deliver_text">
+                    <span class="item_part_price">От <span class="item_part_price_price">{{(product.price/12/2.45).toFixed(2)}}</span> р./месяц </span>
+                    <span class="item_part_price">при оплате частями</span>
+                    </div>
+                  </div>
+                <div class="count" appColor [count]="product.availableAmount" *ngIf="product.availableAmount>0">
+                    <mat-icon class="icon">check_circle_outline</mat-icon>
+                    <span>В наличие </span>
+                  </div>
+                  <div class="count" appColor [count]="product.availableAmount" *ngIf="product.availableAmount < 1">
+                    <mat-icon class="icon">highlight_off</mat-icon>
+                    <span>Нет в наличие </span>
+                  </div>
+                  <div class="item_deliver_deliver">
+                      <div class="deliver_header">
+                        <mat-icon class="deliver_icon"> local_shipping</mat-icon>
+                        <span>Доставка по Минску</span>
+                      </div>
+                    <div class="item_deliver_text">
+                        <span>Курьером до клиента -завтра, бесплатно</span>
+                        <span>Самовывоз в Минске -завтра, бесплатно</span>
+                    </div>
+                  </div>
+            </div>
+            <div class="product_btns">
+                <button mat-flat-button *ngIf="!cart" (click)="addToBasket(product.id)" class="btn">В корзину</button>
+                <button mat-flat-button  *ngIf="cart" (click)="deleteFromBasket(product.id)" class="btn buscet">В корзине</button>
+                <p class="item_add" *ngIf="!favorites" (click)="addToSelect(product.id)">Добавить в избранное</p>
+                <p class="item_add delete" *ngIf="favorites" (click)="deleteFromSelect(product.id)">Удалить из избранного</p>
+            </div>
+        </div>
+    </div>
+    <div class="discription">
+        <div class="descriprion_header">
+            <div class="descriprion_header_wrapper">
+                <span class="descriprion_header_text">Обзор</span>
+            </div>
+        </div>
+        <div class="description_text">
+        <p>{{product.description}}</p>
+        </div>
+    </div>
+</div>
+

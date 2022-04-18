@@ -1,0 +1,8 @@
+<div *ngIf="!!item" class="items_content" >
+    <div class="img_wrapper">
+        <img class="img" src="{{item.imageUrls[0]}}" alt="">
+    </div>
+    <span class="name">{{item.name}}</span>
+    <span class="amount" *ngIf="!!product" >{{product.amount}}</span>
+    <span class="price" *ngIf="!!product">{{item.price * product.amount}} р.</span>
+</div>

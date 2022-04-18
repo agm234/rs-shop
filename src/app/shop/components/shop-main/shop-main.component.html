@@ -1,0 +1,117 @@
+<div class="main_page">
+    <div class="main-slider">
+        <ngb-carousel class="car" *ngIf="images" [showNavigationArrows]="false" [interval] = "5000">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper " (click)=" navigateToProducts('612e84906caaf458a76b92f2')">
+                <img src="../../../../assets/icons/ipad.jpg" alt="Random first slide">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper" (click)="navigateToProducts('612fcd836259d6b455214ba9')">
+                <img [src]="images[1]" alt="Random second slide">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper" (click)=" navigateToProducts('612dc77ae5d9c9eefb40af82')">
+                <img [src]="images[2]" alt="Random third slide">
+              </div>
+            </ng-template>
+          </ngb-carousel>
+          <div class="category">
+            <div class="category_item" (click)="navigateToCategory('electronics')">
+                <span>Электроника</span>
+                <div>
+                <img class="electro"src="https://cdn21vek.by/img/galleries/6141/799/preview_b/redmi9c3gb64gbm2006c3mgnfc_xiaomi_5f4ca4d93ad5e.jpeg" alt="">
+                </div>
+            </div>
+            <div class="category_item" (click)="navigateToCategory('computers-peripherals')">
+                <span>Компьютеры</span>
+                <div>
+                    <img class="electro" src="https://cdn21vek.by/img/galleries/5784/834/preview_b/macbookpro16touchbar2019512gbmvvl2_apple_5ddd180886249.jpeg" alt="">
+                </div>
+            </div>
+            <div class="category_item" (click)="navigateToCategory('appliances')">
+                <span>Бытовая техника</span>
+                <div>
+                <img class="electro" src="https://cdn21vek.by/img/galleries/748/503/preview_b/pir2481k_polaris_5c07e8c9d4799.jpeg" alt="">
+                </div>
+            </div>
+            <div class="category_item" (click)="navigateToCategory('furniture')">
+                <span>Мебель</span>
+                <div>
+                <img class="electro" src="https://cdn21vek.by/img/galleries/916/55/preview_b/175_mebelico_07_60ec5bdb60106.jpeg" alt="">
+                </div>
+            </div>
+          </div>
+    </div>
+    <div class="popular_product_slider">
+        <h3>Популярные товары</h3>
+        <div class="popular_slider">
+            <ngb-carousel class="qweregw" [wrap]="false" [interval] = "0" [showNavigationIndicators]="false">
+                <ng-template  *ngFor="let item of items$ |async| splitpipe" ngbSlide>
+                    <div class="slider_slide">
+                        <div class="slide_item" *ngFor="let it of item">
+                            <div class="slide_img_wrapper" (click)="navigateToProducts(it.id)">
+                                <img class="slide_img"  src="{{it.imageUrls[0]}}" alt="slideImg">
+                            </div>
+                            <div class="slide_item_wrapper">
+                            <span class="item_name" (click)="navigateToProducts(it.id)" >{{it.name}}</span>
+
+                            <span appStars class="item_rating" [number]="it.rating" ></span>
+                            <span>{{it.price}} p.</span>
+                            </div>
+                          </div>
+                    </div>
+                </ng-template>
+              </ngb-carousel>
+        </div>
+    </div>
+    <div class="benefits">
+        <h2>Наши преимущества</h2>
+        <div class="benefits-list">
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-1.jpg" alt="adventage-1">
+                <div class="benefits-item-text">
+                    <h3>Гарантия качества</h3>
+                    <span>Мы продаем только сертифицированный товар с гарантией сервисных центров, чек прилагается.</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-2.jpg" alt="adventage-2">
+                <div class="benefits-item-text">
+                <h3>Честные цены</h3>
+                <span>Все цены, указанные на сайте, действительны и актуальны — данные обновляются автоматически.
+                </span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-3.jpg" alt="adventage-3">
+                <div class="benefits-item-text">
+                    <h3>Доставка по всей Беларуси</h3>
+                <span>Мы доставляем заказы в Минск, Брест, Витебск, Гомель, Гродно, Могилев и в любую другую точку Беларуси!</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-4.jpg" alt="adventage-4">
+                <div class="benefits-item-text">
+                <h3>Кредит «не выходя из дома»</h3>
+                <span>Вы можете выбрать кредит среди предложений ведущих банков, рассчитать и оформить его, не выходя из дома.</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-5.jpg" alt="adventage-5">
+                <div class="benefits-item-text">
+                <h3>Надежный сервис</h3>
+                <span>Мы предлагаем услуги по сборке, установке, настройке, гарантийному и послегарантийному обслуживанию товаров.</span>
+                </div>
+                </div>
+            <div class="benefits-item">
+                <img src="https://www.21vek.by/img/tmp/adventage-6.jpg" alt="adventage-6">
+                <div class="benefits-item-text">
+                    <h3>Выгодные покупки</h3>
+                    <span>Наш онлайн-гипермаркет предлагает вам выгодные акции, скидки и собственную бонусную программу.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+:host {
+    display: flex;
+    height: 90px;
+    background: #f7f8fa;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    align-items: center;
+}
+.header_nav {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 1090px;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo_img {
+    display: block;
+    width: 126px;
+    height: 40px;
+    cursor: pointer;
+}
+.header_btn {
+    border: 1px solid #d5d7db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background: #f7f8fa;
+    transition: 0.5s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.catalog_btn {
+    min-width: 161px;
+}
+.account_btn {
+    min-width: 119px;
+}
+.basket_btn {
+    min-width: 108px;
+}
+.logo,
+.catalog,
+.account,
+.basket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    width: 85%;
+}
+.mat-menu-item {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.avatar_img {
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+.login {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.login_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #ffffff;
+}
+.header_btn:hover {
+    border: none;
+    background: #ffffff;
+}
+.mat_item:hover {
+    background: rgb(179, 24, 96, 0.1);
+    color: #c71245;
+}
+.mat_item:hover .mat-icon {
+    color: #c71245;
+}
+.large-screen {
+    display: flex;
+}
+.small-screen {
+    display: none;
+}
+.logined {
+    width: 64px;
+    height: 64px;
+}
+@media (max-width: 574px) {
+    .catalog,
+    .account,
+    .basket {
+        max-width: 100px;
+    }
+    .logo img {
+        width: 105px;
+    }
+    .catalog_btn,
+    .account_btn,
+    .basket_btn {
+        min-width: 100px;
+    }
+    .header_nav {
+        justify-content: space-evenly;
+    }
+    .large-screen {
+        display: none;
+    }
+    .small-screen {
+        display: flex;
+    }
+}

@@ -1,0 +1,17 @@
+<div class="search_wrapper">
+<div class="search">
+    <mat-icon matPrefix class="search_icon">search</mat-icon>
+<input class="search_input" matInput [(ngModel)]="searchStr" type="search" (input)="find(searchStr)" (blur)="hideSearchResults()" (focus)="showSearchResulst()" placeholder="Поиск товаров" />
+</div>
+<div class="search_result" [class.search_result_hidden]="isSearch$ | async" *ngIf="searchStr.length>2">
+    <div class="search_result_item" (click)="navigateToitem(item.id)" *ngFor="let item of search$|async">
+        <div class="item_img">
+            <img class="img" src="{{item.imageUrls[0]}}" alt="">
+        </div>
+        <div class="item_text">
+            <h2>{{item.name}}</h2>
+            <span>{{item.price}} р</span>
+        </div>
+    </div>
+</div>
+</div>

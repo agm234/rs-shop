@@ -1,0 +1,14 @@
+<div class="category_items">
+    <div class="breadcrums">
+        <span (click)="navigate('')" class="breadcrums_item">Home</span>
+        <span>></span>
+        <span *ngIf="isLengt" (click)="navigate(id[0])" class="breadcrums_item">{{id[0]}}</span>
+        <span class="breadcrums_item" *ngIf="!isLengt">{{id[0]}}</span>
+        <span *ngIf="isLengt">></span>
+        <span class="breadcrums_item" *ngIf="isLengt">{{id[1]}}</span>
+    </div>
+    <h3>{{categoryName|async}}</h3>
+    <app-filters></app-filters>
+    <app-category-items-field></app-category-items-field>
+</div>
+

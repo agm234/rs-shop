@@ -1,0 +1,7 @@
+<div class="select_wrapper">
+    <h2 class="select_header">Избранные товары</h2>
+    <div class="items_wrapper">
+        <app-selected-products-item *ngFor="let item of items$|async" [item]="item"></app-selected-products-item>
+    </div>
+
+</div>

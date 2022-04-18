@@ -1,0 +1,131 @@
+:host {
+    display: block;
+    width: 330px;
+    height: 100%;
+    margin: 10px;
+}
+.example-card {
+    height: 529px;
+    border: none;
+}
+.cardImg_wrapper {
+    padding-top: 20px;
+    width: 100%;
+    height: 168px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content_wraper {
+    width: 100%;
+    height: 326px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.cardImg {
+    width: auto;
+    max-width: 150px;
+    max-height: 150px;
+    display: flex;
+    justify-content: center;
+}
+.item_rating {
+    display: block;
+    height: 100%;
+    height: 16px;
+    background-image: url(/../../assets/icons/star.png);
+    background-repeat: repeat-x;
+    background-position: left;
+}
+.buscet_btn {
+    width: 80%;
+    background: #ea1653;
+    color: #ffffff;
+}
+.buscet {
+    background-color: #ffffff;
+    color: #ea1653;
+    border: 1px solid #ea1653;
+}
+.item_name_header {
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    white-space: wrap !important;
+    color: #0072bc;
+    text-decoration: underline;
+}
+.item_price {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.item_price span {
+    font-size: 14px;
+    line-height: 20px;
+}
+.item_add {
+    font-size: 1em;
+    color: #0072bc;
+    border-bottom: 1px dotted rgba(0, 114, 188, 0.5);
+    cursor: pointer;
+    pointer-events: auto;
+}
+.item_deliver {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.item_deliver_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.deliver_icon {
+    display: block;
+    margin-right: 5px;
+    color: #0072bc;
+}
+.count {
+    display: flex;
+    align-items: center;
+    color: #999999;
+}
+.icon {
+    margin-right: 5px;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.yellow {
+    color: yellow;
+}
+.delete {
+    color: #ea1653;
+}
+.item_name:hover,
+.cardImg:hover,
+.item_add:hover {
+    cursor: pointer;
+    color: #c71245;
+}
+.cardImg_wrapper:hover {
+    cursor: pointer;
+}
+.cardImg_wrapper:hover ~ .content_wraper .item_name {
+    color: #c71245;
+}
+.delete:hover {
+    color: #0072bc;
+}
+.buscet_btn:hover {
+    background: #c9073e;
+}
+.buscet:hover {
+    background: rgb(255, 234, 234) !important;
+}

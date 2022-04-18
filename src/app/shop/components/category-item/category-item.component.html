@@ -1,0 +1,37 @@
+<mat-card *ngIf="!!item" class="example-card">
+    <div class="cardImg_wrapper" (click)="navigateToProduct(item.id)">
+        <img onerror="this.src='../../../../assets/icons/noFoto.png'"  mat-card-image class="cardImg" [src]="item.imageUrls[0]"  alt="Photo of product">
+    </div>
+    <mat-card-content class="content_wraper">
+      <h3 class="item_name_header" (click)="navigateToProduct(item.id)">{{item.name}}</h3>
+      <div class="count" appColor [count]="item.availableAmount" *ngIf="item.availableAmount>0">
+        <mat-icon class="icon">check_circle_outline</mat-icon>
+        <span>В наличие </span>
+      </div>
+      <div class="count" appColor [count]="item.availableAmount" *ngIf="item.availableAmount <1">
+        <mat-icon class="icon">highlight_off</mat-icon>
+        <span>Нет в наличие </span>
+      </div>
+      <span class="item_price">{{item.price}}<span> р.</span></span>
+      <span appStars class="item_rating" [number]="item.rating" ></span>
+      <button mat-flat-button *ngIf="!cart" (click)="addToBasket(item.id)"  class="buscet_btn">В корзину</button>
+      <button mat-flat-button  *ngIf="cart"(click)="removeFromBasket(item.id)"  class="buscet_btn buscet">В корзине</button>
+      <p class="item_add" *ngIf="!favorites" (click)="addToSelect(item.id)">Добавить в избранное</p>
+      <p class="item_add delete" *ngIf="favorites" (click)="removeFromSelect(item.id)">Удалить из избранного</p>
+      <div class="item_deliver">
+        <mat-icon class="deliver_icon">  incomplete_circle</mat-icon>
+        <div class="item_deliver_text">
+        <span>От {{(item.price/12/2.45).toFixed(2)}} р./месяц </span>
+        <span>при оплате частями</span>
+        </div>
+      </div>
+      <div class="item_deliver">
+        <mat-icon class="deliver_icon"> local_shipping</mat-icon>
+        <div class="item_deliver_text">
+            <span>Курьером-завтра</span>
+            <span>Самовывоз-завтра</span>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
