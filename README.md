@@ -2,14 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
 
-## Deploy
 
-https://rs-shop-agm234.netlify.app/
-To work with orders and selected products, you must log in
-
-login Warner
-
-password ea
  
 ## Development server
 
